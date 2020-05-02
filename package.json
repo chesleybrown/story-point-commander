@@ -1,5 +1,5 @@
 {
-  "name": "nextjs",
+  "name": "story-point-commander",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,8 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "next": "^9.3.3",
     "react": "^16.13.0",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.0"
   },
   "devDependencies": {
