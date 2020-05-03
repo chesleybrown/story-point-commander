@@ -2,7 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { StoryPointOptionID, StoryPointRiskOptions, StoryPointDetail } from "../services/StoryPointOptions";
+import { StoryPointDetail } from "../services/StoryPointOptions";
+import Calculator from "../services/StoryPointCalculator";
 
 type Props = {
     currentSolutionEffortOption?: StoryPointDetail,
@@ -32,7 +33,11 @@ class RiskSelector extends React.Component<Props, State> {
                 </Row>
                 <Row>
                     <Col xs={2}>
-                        <p></p>
+                        <p>{Calculator({
+                            solutionEffortOption: this.props.currentSolutionEffortOption,
+                            testingOption: this.props.currentTestingOption,
+                            riskOption: this.props.currentRiskOption
+                        })}</p>
                     </Col>
                     <Col xs={3}>
                         <p>{this.props.currentSolutionEffortOption ? this.props.currentSolutionEffortOption.description : "TBD"}</p>
