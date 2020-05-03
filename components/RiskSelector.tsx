@@ -3,13 +3,14 @@ import SelectableCard from "./SelectableCard"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { StoryPointOptionID, StoryPointRiskOptions } from "../services/StoryPointOptions";
+import { StoryPointDetail, StoryPointRiskOptions } from "../services/StoryPointOptions";
 
 type Props = {
+    onSelected?: (StoryPointDetail) => void
 };
 
 type State = {
-    current?: StoryPointOptionID;
+    current?: StoryPointDetail;
 };
 
 class RiskSelector extends React.Component<Props, State> {
@@ -21,10 +22,13 @@ class RiskSelector extends React.Component<Props, State> {
         this.selected = this.selected.bind(this);
     }
 
-    selected(id: StoryPointOptionID) {
+    selected(detail: StoryPointDetail) {
         this.setState({
-            current: id
+            current: detail
         });
+        if (this.props.onSelected) {
+            this.props.onSelected(detail);
+        }
     }
 
     render() {

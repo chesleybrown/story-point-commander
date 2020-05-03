@@ -3,13 +3,14 @@ import SelectableCard from "./SelectableCard"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { StoryPointOptionID, StoryPointTestingOptions } from "../services/StoryPointOptions";
+import { StoryPointDetail, StoryPointTestingOptions } from "../services/StoryPointOptions";
 
 type Props = {
+    onSelected?: (StoryPointDetail) => void
 };
 
 type State = {
-    current?: StoryPointOptionID;
+    current?: StoryPointDetail;
 };
 
 class TestingEffortSelector extends React.Component<Props, State> {
@@ -21,31 +22,32 @@ class TestingEffortSelector extends React.Component<Props, State> {
         this.selected = this.selected.bind(this);
     }
 
-    selected(id: StoryPointOptionID) {
+    selected(detail: StoryPointDetail) {
         this.setState({
-            current: id
+            current: detail
         });
+        if (this.props.onSelected) {
+            this.props.onSelected(detail);
+        }
     }
 
     render() {
         return (
-            <div className="row">
-                <Container>
-                    <Row>
-                        <Col xs={3}><h3>Baseline</h3></Col>
-                        <Col xs={3}><h3>+1</h3></Col>
-                        <Col xs={3}><h3>+2</h3></Col>
-                    </Row>
-                    <Row>
-                        <Col><hr></hr></Col>
-                    </Row>
-                    <Row>
-                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingBaseline} current={this.state.current}></SelectableCard></Col>
-                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus1} current={this.state.current}></SelectableCard></Col>
-                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus2} current={this.state.current}></SelectableCard></Col>
-                    </Row>
-                </Container>
-            </div >
+            <Container>
+                <Row>
+                    <Col xs={3}><h3>Baseline</h3></Col>
+                    <Col xs={3}><h3>+1</h3></Col>
+                    <Col xs={3}><h3>+2</h3></Col>
+                </Row>
+                <Row>
+                    <Col><hr></hr></Col>
+                </Row>
+                <Row>
+                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingBaseline} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus1} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus2} current={this.state.current}></SelectableCard></Col>
+                </Row>
+            </Container>
         );
     }
 }

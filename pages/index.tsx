@@ -1,8 +1,5 @@
 import Head from "next/head"
-import SolutionEffortSelector from "../components/SolutionEffortSelector"
-import SolutionEffortMemo from "../components/SolutionEffortMemo"
-import TestingEffortSelector from "../components/TestingEffortSelector"
-import RiskSelector from "../components/RiskSelector"
+import StoryPointCommander from "../components/StoryPointCommander"
 
 const Home = () => (
   <div className="container">
@@ -12,23 +9,14 @@ const Home = () => (
     </Head>
 
     <main>
-      <h1>Story Point Commander</h1>
-      <SolutionEffortMemo></SolutionEffortMemo>
-
-      <h2>Solution &amp; Effort</h2>
-      <SolutionEffortSelector></SolutionEffortSelector>
-
-      <h2>Testing</h2>
-      <TestingEffortSelector></TestingEffortSelector>
-
-      <h2>Risk</h2>
-      <RiskSelector></RiskSelector>
+      <StoryPointCommander></StoryPointCommander>
     </main>
+
     <footer>
       <hr></hr>
       <p>Created by <a href="https://github.com/chesleybrown">chesleybrown</a></p>
     </footer>
-  </div>
+  </div >
 )
 
 export default Home
