@@ -1,20 +1,15 @@
-import React from 'react';
+import React from "react";
 import SelectableCard from "./SelectableCard"
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-enum TestingOption {
-    TestingBaseline,
-    TestingPlus1,
-    TestingPlus2,
-}
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { StoryPointOptionID, StoryPointTestingOptions } from "../services/StoryPointOptions";
 
 type Props = {
 };
 
 type State = {
-    current?: TestingOption;
+    current?: StoryPointOptionID;
 };
 
 class TestingEffortSelector extends React.Component<Props, State> {
@@ -26,9 +21,9 @@ class TestingEffortSelector extends React.Component<Props, State> {
         this.selected = this.selected.bind(this);
     }
 
-    selected(option: TestingOption) {
+    selected(id: StoryPointOptionID) {
         this.setState({
-            current: option
+            current: id
         });
     }
 
@@ -45,9 +40,9 @@ class TestingEffortSelector extends React.Component<Props, State> {
                         <Col><hr></hr></Col>
                     </Row>
                     <Row>
-                        <Col xs={3}><SelectableCard<TestingOption> onClick={this.selected} option={TestingOption.TestingBaseline} current={this.state.current} content={<span><strong>Zero</strong> additional testing effort beyond standard practice</span>}></SelectableCard></Col>
-                        <Col xs={3}><SelectableCard<TestingOption> onClick={this.selected} option={TestingOption.TestingPlus1} current={this.state.current} content={<span>Testing effort <strong>exceeds standard practice</strong> and is <strong>equal</strong> to the effort of the implementation</span>}></SelectableCard></Col>
-                        <Col xs={3}><SelectableCard<TestingOption> onClick={this.selected} option={TestingOption.TestingPlus2} current={this.state.current} content={<span>Testing effort <strong>exceeds standard practice</strong> and is <strong>greater</strong> than the effort of the implementation</span>}></SelectableCard></Col>
+                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingBaseline} current={this.state.current}></SelectableCard></Col>
+                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus1} current={this.state.current}></SelectableCard></Col>
+                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus2} current={this.state.current}></SelectableCard></Col>
                     </Row>
                 </Container>
             </div >

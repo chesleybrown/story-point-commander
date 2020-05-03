@@ -1,20 +1,15 @@
-import React from 'react';
+import React from "react";
 import SelectableCard from "./SelectableCard"
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-enum RiskOption {
-    RiskBaseline,
-    RiskPlus1,
-    RiskPlus2,
-}
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { StoryPointOptionID, StoryPointRiskOptions } from "../services/StoryPointOptions";
 
 type Props = {
 };
 
 type State = {
-    current?: RiskOption;
+    current?: StoryPointOptionID;
 };
 
 class RiskSelector extends React.Component<Props, State> {
@@ -26,9 +21,9 @@ class RiskSelector extends React.Component<Props, State> {
         this.selected = this.selected.bind(this);
     }
 
-    selected(option: RiskOption) {
+    selected(id: StoryPointOptionID) {
         this.setState({
-            current: option
+            current: id
         });
     }
 
@@ -45,9 +40,9 @@ class RiskSelector extends React.Component<Props, State> {
                         <Col><hr></hr></Col>
                     </Row>
                     <Row>
-                        <Col xs={3}><SelectableCard<RiskOption> onClick={this.selected} option={RiskOption.RiskBaseline} current={this.state.current} content={<span>All risks <strong>owned</strong> outside of this ticket, <strong>accepted</strong>, <strong>resolved</strong>, or <strong>mitigated</strong>.</span>}></SelectableCard></Col>
-                        <Col xs={3}><SelectableCard<RiskOption> onClick={this.selected} option={RiskOption.RiskPlus1} current={this.state.current} content={<span><strong>Low to moderate</strong> risk <strong>owned</strong> and <strong>accepted</strong> as part of this ticket</span>}></SelectableCard></Col>
-                        <Col xs={3}><SelectableCard<RiskOption> onClick={this.selected} option={RiskOption.RiskPlus2} current={this.state.current} content={<span><strong>Moderate to high</strong> risk <strong>owned</strong> and <strong>accepted</strong> as part of this ticket</span>}></SelectableCard></Col>
+                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskBaseline} current={this.state.current}></SelectableCard></Col>
+                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus1} current={this.state.current}></SelectableCard></Col>
+                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus2} current={this.state.current}></SelectableCard></Col>
                     </Row>
                 </Container>
             </div >
