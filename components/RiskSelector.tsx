@@ -36,6 +36,7 @@ class RiskSelector extends React.Component<Props, State> {
             <div className="row">
                 <Container>
                     <Row>
+                        <Col xs={2}></Col>
                         <Col xs={3}><h3>Baseline</h3></Col>
                         <Col xs={3}><h3>+1</h3></Col>
                         <Col xs={3}><h3>+2</h3></Col>
@@ -44,6 +45,7 @@ class RiskSelector extends React.Component<Props, State> {
                         <Col><hr></hr></Col>
                     </Row>
                     <Row>
+                        <Col xs={2}></Col>
                         <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskBaseline} current={this.state.current}></SelectableCard></Col>
                         <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus1} current={this.state.current}></SelectableCard></Col>
                         <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus2} current={this.state.current}></SelectableCard></Col>

@@ -40,13 +40,13 @@ class RiskSelector extends React.Component<Props, State> {
                         })}</p>
                     </Col>
                     <Col xs={3}>
-                        <p>{this.props.currentSolutionEffortOption ? this.props.currentSolutionEffortOption.description : "TBD"}</p>
+                        <p>{this.props.currentSolutionEffortOption ? this.props.currentSolutionEffortOption.description : "…"}</p>
                     </Col>
                     <Col xs={3}>
-                        <p>{this.props.currentTestingOption ? this.props.currentTestingOption.description : "TBD"}</p>
+                        <p>{this.props.currentTestingOption ? this.props.currentTestingOption.description : "…"}</p>
                     </Col>
                     <Col xs={3}>
-                        <p>{this.props.currentRiskOption ? this.props.currentRiskOption.description : "TBD"}</p>
+                        <p>{this.props.currentRiskOption ? this.props.currentRiskOption.description : "…"}</p>
                     </Col>
                 </Row>
             </Container>

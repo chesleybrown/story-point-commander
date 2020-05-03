@@ -35,6 +35,7 @@ class TestingEffortSelector extends React.Component<Props, State> {
         return (
             <Container>
                 <Row>
+                    <Col xs={2}></Col>
                     <Col xs={3}><h3>Baseline</h3></Col>
                     <Col xs={3}><h3>+1</h3></Col>
                     <Col xs={3}><h3>+2</h3></Col>
@@ -43,6 +44,7 @@ class TestingEffortSelector extends React.Component<Props, State> {
                     <Col><hr></hr></Col>
                 </Row>
                 <Row>
+                    <Col xs={2}></Col>
                     <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingBaseline} current={this.state.current}></SelectableCard></Col>
                     <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus1} current={this.state.current}></SelectableCard></Col>
                     <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus2} current={this.state.current}></SelectableCard></Col>
