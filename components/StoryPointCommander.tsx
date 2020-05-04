@@ -31,6 +31,7 @@ class StoryPointCommander extends React.Component<Props, State> {
         this.onSolutionEffortOptionSelected = this.onSolutionEffortOptionSelected.bind(this);
         this.onTestingOptionSelected = this.onTestingOptionSelected.bind(this);
         this.onRiskOptionSelected = this.onRiskOptionSelected.bind(this);
+        this.clear = this.clear.bind(this);
     }
 
     onSolutionEffortOptionSelected(selected: StoryPointDetail) {
@@ -51,6 +52,14 @@ class StoryPointCommander extends React.Component<Props, State> {
         })
     }
 
+    clear() {
+        this.setState({
+            currentSolutionEffortOption: null,
+            currentTestingOption: null,
+            currentRiskOption: null
+        })
+    }
+
     render() {
         return (
             <Container>
@@ -58,35 +67,36 @@ class StoryPointCommander extends React.Component<Props, State> {
                 <SolutionEffortMemo></SolutionEffortMemo>
 
                 <h2>Solution &amp; Effort</h2>
-                <SolutionEffortSelector onSelected={this.onSolutionEffortOptionSelected}></SolutionEffortSelector>
+                <SolutionEffortSelector current={this.state.currentSolutionEffortOption} onSelected={this.onSolutionEffortOptionSelected}></SolutionEffortSelector>
 
                 <hr></hr>
 
                 <h2>Testing</h2>
-                <TestingEffortSelector onSelected={this.onTestingOptionSelected}></TestingEffortSelector>
+                <TestingEffortSelector current={this.state.currentTestingOption} onSelected={this.onTestingOptionSelected}></TestingEffortSelector>
 
                 <hr></hr>
 
                 <h2>Risk</h2>
-                <RiskSelector onSelected={this.onRiskOptionSelected}></RiskSelector>
+                <RiskSelector current={this.state.currentRiskOption} onSelected={this.onRiskOptionSelected}></RiskSelector>
                 <hr></hr>
                 <RiskMemo></RiskMemo>
 
                 <hr></hr>
+
+                <h2>Summary</h2>
+                <Summary currentSolutionEffortOption={this.state.currentSolutionEffortOption} currentTestingOption={this.state.currentTestingOption} currentRiskOption={this.state.currentRiskOption}></Summary>
+
+                <hr></hr>
+
                 <Container>
                     <Row className="justify-content-md-center">
                         <Col xs lg="2"></Col>
                         <Col md="auto">
-                            <Button size="lg" variant="success">Done</Button>
-                            {" "}
-                            <Button size="lg" variant="danger">Clear</Button>
+                            <Button size="lg" variant="danger" onClick={this.clear}>Clear</Button>
                         </Col>
                         <Col xs lg="2"></Col>
                     </Row>
                 </Container>
-
-                <h2>Summary</h2>
-                <Summary currentSolutionEffortOption={this.state.currentSolutionEffortOption} currentTestingOption={this.state.currentTestingOption} currentRiskOption={this.state.currentRiskOption}></Summary>
             </Container>
         );
     }

@@ -7,25 +7,19 @@ import { StoryPointDetail, StoryPointTestingOptions } from "../services/StoryPoi
 
 type Props = {
     onSelected?: (option: StoryPointDetail) => void
+    current?: StoryPointDetail;
 };
 
 type State = {
-    current?: StoryPointDetail;
 };
 
 class TestingEffortSelector extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-        this.state = {
-            current: null
-        };
         this.selected = this.selected.bind(this);
     }
 
     selected(detail: StoryPointDetail) {
-        this.setState({
-            current: detail
-        });
         if (this.props.onSelected) {
             this.props.onSelected(detail);
         }
@@ -35,9 +29,9 @@ class TestingEffortSelector extends React.Component<Props, State> {
         return (
             <Container>
                 <Row>
-                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingBaseline} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus1} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus2} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingBaseline} current={this.props.current}></SelectableCard></Col>
+                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus1} current={this.props.current}></SelectableCard></Col>
+                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus2} current={this.props.current}></SelectableCard></Col>
                 </Row>
             </Container>
         );
