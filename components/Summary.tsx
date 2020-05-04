@@ -14,7 +14,7 @@ type Props = {
 type State = {
 };
 
-class RiskSelector extends React.Component<Props, State> {
+class Summary extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
     }
@@ -54,4 +54,4 @@ class RiskSelector extends React.Component<Props, State> {
     }
 }
 
-export default RiskSelector
+export default Summary
