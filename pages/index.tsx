@@ -14,7 +14,7 @@ const Home = () => (
 
     <footer style={{ margin: "3rem" }}>
       <hr></hr>
-      <p style={{ textAlign: "center" }}>Thrown together by <a href="https://github.com/chesleybrown">chesleybrown</a> 👨🏻‍💻</p>
+      <p style={{ textAlign: "center" }}>Thrown together by <a target="_blank" href="https://github.com/chesleybrown">chesleybrown</a> 👨🏻‍💻</p>
     </footer>
   </div>
 )
