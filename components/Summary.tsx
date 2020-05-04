@@ -25,8 +25,8 @@ class Summary extends React.Component<Props, State> {
                 <Row>
                     <Col xs={2}><h3>Story Points</h3></Col>
                     <Col xs={3}><h3>Solution &amp; Effort</h3></Col>
-                    <Col xs={3}><h3>Effort</h3></Col>
                     <Col xs={3}><h3>Testing</h3></Col>
+                    <Col xs={3}><h3>Risk</h3></Col>
                 </Row>
                 <Row>
                     <Col><hr></hr></Col>
