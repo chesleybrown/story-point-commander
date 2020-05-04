@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import { StoryPointDetail, StoryPointTestingOptions } from "../services/StoryPointOptions";
 
 type Props = {
-    onSelected?: (StoryPointDetail) => void
+    onSelected?: (option: StoryPointDetail) => void
 };
 
 type State = {
@@ -14,7 +14,7 @@ type State = {
 };
 
 class TestingEffortSelector extends React.Component<Props, State> {
-    constructor(props) {
+    constructor(props: Props) {
         super(props)
         this.state = {
             current: null
@@ -35,19 +35,9 @@ class TestingEffortSelector extends React.Component<Props, State> {
         return (
             <Container>
                 <Row>
-                    <Col xs={2}></Col>
-                    <Col xs={3}><h3>Baseline</h3></Col>
-                    <Col xs={3}><h3>+1</h3></Col>
-                    <Col xs={3}><h3>+2</h3></Col>
-                </Row>
-                <Row>
-                    <Col><hr></hr></Col>
-                </Row>
-                <Row>
-                    <Col xs={2}></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingBaseline} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus1} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus2} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingBaseline} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus1} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointTestingOptions.TestingPlus2} current={this.state.current}></SelectableCard></Col>
                 </Row>
             </Container>
         );

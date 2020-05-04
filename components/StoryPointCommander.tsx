@@ -1,6 +1,7 @@
 import React from "react";
 import SolutionEffortSelector from "../components/SolutionEffortSelector"
 import SolutionEffortMemo from "../components/SolutionEffortMemo"
+import RiskMemo from "../components/RiskMemo"
 import TestingEffortSelector from "../components/TestingEffortSelector"
 import RiskSelector from "../components/RiskSelector"
 import Summary from "../components/Summary"
@@ -59,17 +60,27 @@ class StoryPointCommander extends React.Component<Props, State> {
                 <h2>Solution &amp; Effort</h2>
                 <SolutionEffortSelector onSelected={this.onSolutionEffortOptionSelected}></SolutionEffortSelector>
 
+                <hr></hr>
+
                 <h2>Testing</h2>
                 <TestingEffortSelector onSelected={this.onTestingOptionSelected}></TestingEffortSelector>
 
+                <hr></hr>
+
                 <h2>Risk</h2>
                 <RiskSelector onSelected={this.onRiskOptionSelected}></RiskSelector>
+                <hr></hr>
+                <RiskMemo></RiskMemo>
 
                 <hr></hr>
                 <Container>
                     <Row className="justify-content-md-center">
                         <Col xs lg="2"></Col>
-                        <Col md="auto"><Button size="lg" variant="success">Done</Button></Col>
+                        <Col md="auto">
+                            <Button size="lg" variant="success">Done</Button>
+                            {" "}
+                            <Button size="lg" variant="danger">Clear</Button>
+                        </Col>
                         <Col xs lg="2"></Col>
                     </Row>
                 </Container>

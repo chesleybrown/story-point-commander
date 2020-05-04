@@ -2,7 +2,7 @@ import Head from "next/head"
 import StoryPointCommander from "../components/StoryPointCommander"
 
 const Home = () => (
-  <div className="container">
+  <div>
     <Head>
       <title>Story Point Commander</title>
       <link rel="icon" href="/favicon.ico" />
@@ -12,11 +12,11 @@ const Home = () => (
       <StoryPointCommander></StoryPointCommander>
     </main>
 
-    <footer>
+    <footer style={{ margin: "3rem" }}>
       <hr></hr>
-      <p>Created by <a href="https://github.com/chesleybrown">chesleybrown</a></p>
+      <p style={{ textAlign: "center" }}>Thrown together by <a href="https://github.com/chesleybrown">chesleybrown</a> 👨🏻‍💻</p>
     </footer>
-  </div >
+  </div>
 )
 
 export default Home

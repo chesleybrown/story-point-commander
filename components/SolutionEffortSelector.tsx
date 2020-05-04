@@ -7,7 +7,7 @@ import Alert from "react-bootstrap/Alert";
 import { StoryPointOptionID, StoryPointDetail, StoryPointBriefOptions, StoryPointSolutionOptions, StoryPointEffortOptions } from "../services/StoryPointOptions";
 
 type Props = {
-    onSelected?: (StoryPointDetail) => void
+    onSelected?: (option: StoryPointDetail) => void,
 };
 
 type State = {
@@ -15,7 +15,7 @@ type State = {
 };
 
 class SolutionEffortSelector extends React.Component<Props, State> {
-    constructor(props) {
+    constructor(props: Props) {
         super(props)
         this.state = {
             current: null
@@ -36,70 +36,54 @@ class SolutionEffortSelector extends React.Component<Props, State> {
         return (
             <Container>
                 <Row>
-                    <Col xs={2}><h3>Story Points</h3></Col>
-                    <Col xs={3}><h3>Brief</h3></Col>
-                    <Col xs={3}><h3>Solution</h3></Col>
-                    <Col xs={3}><h3>Effort</h3></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief1} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution1} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort1} current={this.state.current}></SelectableCard></Col>
                 </Row>
                 <Row>
                     <Col><hr></hr></Col>
                 </Row>
                 <Row>
-                    <Col xs={2}><h3>1</h3></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief1} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution1} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort1} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief2} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution2} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort2} current={this.state.current}></SelectableCard></Col>
                 </Row>
                 <Row>
                     <Col><hr></hr></Col>
                 </Row>
                 <Row>
-                    <Col xs={2}><h3>2</h3></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief2} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution2} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort2} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief3} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution3} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort3} current={this.state.current}></SelectableCard></Col>
                 </Row>
                 <Row>
                     <Col><hr></hr></Col>
                 </Row>
                 <Row>
-                    <Col xs={2}><h3>3</h3></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief3} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution3} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort3} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief5} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution5} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort5} current={this.state.current}></SelectableCard></Col>
                 </Row>
                 <Row>
                     <Col><hr></hr></Col>
                 </Row>
                 <Row>
-                    <Col xs={2}><h3>5</h3></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief5} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution5} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort5} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief8} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution8} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort8} current={this.state.current}></SelectableCard></Col>
                 </Row>
                 <Row>
                     <Col><hr></hr></Col>
                 </Row>
                 <Row>
-                    <Col xs={2}><h3>8</h3></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief8} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution8} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort8} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief13} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution13} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort13} current={this.state.current}></SelectableCard></Col>
                 </Row>
                 <Row>
                     <Col><hr></hr></Col>
                 </Row>
                 <Row>
-                    <Col xs={2}><h3>13</h3></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointBriefOptions.Brief13} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointSolutionOptions.Solution13} current={this.state.current}></SelectableCard></Col>
-                    <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointEffortOptions.Effort13} current={this.state.current}></SelectableCard></Col>
-                </Row>
-                <Row>
-                    <Col><hr></hr></Col>
-                </Row>
-                <Row>
-                    <Col xs={2}><h3>&gt;13</h3></Col>
                     <Col>
                         <Alert variant="warning">
                             Anything you feel would be greater than <strong>13</strong> story points should be broken down into smaller tasks before estimating further. Try adding a <strong>discovery task</strong> to help understand the <strong>scope of the work</strong> better.

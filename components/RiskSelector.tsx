@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import { StoryPointDetail, StoryPointRiskOptions } from "../services/StoryPointOptions";
 
 type Props = {
-    onSelected?: (StoryPointDetail) => void
+    onSelected?: (option: StoryPointDetail) => void
 };
 
 type State = {
@@ -14,7 +14,7 @@ type State = {
 };
 
 class RiskSelector extends React.Component<Props, State> {
-    constructor(props) {
+    constructor(props: Props) {
         super(props)
         this.state = {
             current: null
@@ -33,25 +33,13 @@ class RiskSelector extends React.Component<Props, State> {
 
     render() {
         return (
-            <div className="row">
-                <Container>
-                    <Row>
-                        <Col xs={2}></Col>
-                        <Col xs={3}><h3>Baseline</h3></Col>
-                        <Col xs={3}><h3>+1</h3></Col>
-                        <Col xs={3}><h3>+2</h3></Col>
-                    </Row>
-                    <Row>
-                        <Col><hr></hr></Col>
-                    </Row>
-                    <Row>
-                        <Col xs={2}></Col>
-                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskBaseline} current={this.state.current}></SelectableCard></Col>
-                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus1} current={this.state.current}></SelectableCard></Col>
-                        <Col xs={3}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus2} current={this.state.current}></SelectableCard></Col>
-                    </Row>
-                </Container>
-            </div >
+            <Container>
+                <Row>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskBaseline} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus1} current={this.state.current}></SelectableCard></Col>
+                    <Col xs={4}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus2} current={this.state.current}></SelectableCard></Col>
+                </Row>
+            </Container>
         );
     }
 }

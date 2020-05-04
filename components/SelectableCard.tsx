@@ -13,7 +13,7 @@ type State = {
 };
 
 class SelectableCard extends React.Component<Props, State> {
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.click = this.click.bind(this);
     }
@@ -24,10 +24,13 @@ class SelectableCard extends React.Component<Props, State> {
 
     render() {
         return (
-            <Card style={{ width: "16rem", height: "14rem" }}>
+            <Card style={{ minHeight: "14rem" }}>
                 <Card.Body>
+                    <Card.Title>{this.props.option.category} {this.props.option.value || "+" + this.props.option.modifier}</Card.Title>
                     <Card.Text>{this.props.option.description}</Card.Text>
-                    <Button onClick={this.click} variant={this.props.current && this.props.current.id == this.props.option.id ? "primary" : "secondary"}>Select</Button>
+                    <Button onClick={this.click} variant={this.props.current && this.props.current.id == this.props.option.id ? "primary" : "secondary"}>
+                        Select
+                    </Button>
                 </Card.Body>
             </Card>
         );

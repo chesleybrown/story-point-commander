@@ -7,7 +7,7 @@ type Props = {
 type State = {
 };
 
-class SolutionEffortSelector extends React.Component<Props, State> {
+class SolutionEffortMemo extends React.Component<Props, State> {
     render() {
         return (
             <Alert variant="primary">
@@ -18,4 +18,4 @@ class SolutionEffortSelector extends React.Component<Props, State> {
     }
 }
 
-export default SolutionEffortSelector
+export default SolutionEffortMemo
