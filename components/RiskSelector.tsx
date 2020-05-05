@@ -3,11 +3,14 @@ import SelectableCard from "./SelectableCard"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { StoryPointDetail, StoryPointRiskOptions } from "../services/StoryPointOptions";
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+import { StoryPointOptionID, StoryPointDetail, StoryPointRiskOptions } from "../services/StoryPointOptions";
+import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
 
 type Props = {
+    sessionId: string
     onSelected?: (option: StoryPointDetail) => void
-    current?: StoryPointDetail;
 };
 
 type State = {
@@ -27,13 +30,46 @@ class RiskSelector extends React.Component<Props, State> {
 
     render() {
         return (
-            <Container>
-                <Row>
-                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskBaseline} current={this.props.current}></SelectableCard></Col>
-                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus1} current={this.props.current}></SelectableCard></Col>
-                    <Col xs={12} sm={4}><SelectableCard onClick={this.selected} option={StoryPointRiskOptions.RiskPlus2} current={this.props.current}></SelectableCard></Col>
-                </Row>
-            </Container>
+
+            <FirestoreMutation type="set" path={"/sessions/" + this.props.sessionId + "/participants/wvyqp45U48XtuMpsj2BV"}>
+                {({ runMutation }) => {
+                    let update = function (id: StoryPointOptionID) {
+                        runMutation({
+                            name: "Chesley",
+                            riskOptionId: id
+                        }, { merge: true }).then(res => {
+                            console.log("Ran mutation ", res);
+                        })
+                    }
+                    return (
+                        <FirestoreDocument path={"/sessions/" + this.props.sessionId + "/participants/wvyqp45U48XtuMpsj2BV"}>
+                            {d => {
+                                return (!d.value) ? <span></span> : (
+                                    <Container>
+                                        <Row>
+                                            <Col xs={12} sm={4}>
+                                                <SelectableCard onClick={() => {
+                                                    update(StoryPointRiskOptions.RiskBaseline.id)
+                                                }} option={StoryPointRiskOptions.RiskBaseline} current={StoryPointRiskOptions[d.value.riskOptionId]}></SelectableCard>
+                                            </Col>
+                                            <Col xs={12} sm={4}>
+                                                <SelectableCard onClick={() => {
+                                                    update(StoryPointRiskOptions.RiskPlus1.id)
+                                                }} option={StoryPointRiskOptions.RiskPlus1} current={StoryPointRiskOptions[d.value.riskOptionId]}></SelectableCard>
+                                            </Col>
+                                            <Col xs={12} sm={4}>
+                                                <SelectableCard onClick={() => {
+                                                    update(StoryPointRiskOptions.RiskPlus2.id)
+                                                }} option={StoryPointRiskOptions.RiskPlus2} current={StoryPointRiskOptions[d.value.riskOptionId]}></SelectableCard>
+                                            </Col>
+                                        </Row>
+                                    </Container>
+                                )
+                            }}
+                        </FirestoreDocument>
+                    )
+                }}
+            </FirestoreMutation>
         );
     }
 }

@@ -9,9 +9,10 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { StoryPointOptionID, StoryPointRiskOptions, StoryPointDetail } from "../services/StoryPointOptions";
+import { StoryPointDetail } from "../services/StoryPointOptions";
 
 type Props = {
+    sessionId: string
 };
 
 type State = {
@@ -63,7 +64,6 @@ class StoryPointCommander extends React.Component<Props, State> {
     render() {
         return (
             <Container>
-                <h1>Story Point Commander</h1>
                 <SolutionEffortMemo></SolutionEffortMemo>
 
                 <h2>Solution &amp; Effort</h2>
@@ -77,14 +77,14 @@ class StoryPointCommander extends React.Component<Props, State> {
                 <hr></hr>
 
                 <h2>Risk</h2>
-                <RiskSelector current={this.state.currentRiskOption} onSelected={this.onRiskOptionSelected}></RiskSelector>
+                <RiskSelector sessionId={this.props.sessionId} onSelected={this.onRiskOptionSelected}></RiskSelector>
                 <hr></hr>
                 <RiskMemo></RiskMemo>
 
                 <hr></hr>
 
                 <h2>Summary</h2>
-                <Summary currentSolutionEffortOption={this.state.currentSolutionEffortOption} currentTestingOption={this.state.currentTestingOption} currentRiskOption={this.state.currentRiskOption}></Summary>
+                <Summary sessionId={this.props.sessionId} currentSolutionEffortOption={this.state.currentSolutionEffortOption} currentTestingOption={this.state.currentTestingOption} currentRiskOption={this.state.currentRiskOption}></Summary>
 
                 <hr></hr>
 

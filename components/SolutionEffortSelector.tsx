@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
-import { StoryPointOptionID, StoryPointDetail, StoryPointBriefOptions, StoryPointSolutionOptions, StoryPointEffortOptions } from "../services/StoryPointOptions";
+import { StoryPointDetail, StoryPointBriefOptions, StoryPointSolutionOptions, StoryPointEffortOptions } from "../services/StoryPointOptions";
 
 type Props = {
     onSelected?: (option: StoryPointDetail) => void,
