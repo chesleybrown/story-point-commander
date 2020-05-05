@@ -1,7 +1,8 @@
 import Head from "next/head"
-import StoryPointCommander from "../components/StoryPointCommander"
+import Navbar from "react-bootstrap/Navbar";
+import SessionCreator from "../components/SessionCreator";
 
-const Home = () => (
+const HomePage = () => (
   <div>
     <Head>
       <title>Story Point Commander</title>
@@ -9,7 +10,11 @@ const Home = () => (
     </Head>
 
     <main>
-      <StoryPointCommander></StoryPointCommander>
+      <Navbar bg="light">
+        <Navbar.Brand href="#home">Story Point Commander</Navbar.Brand>
+      </Navbar>
+      <br />
+      <SessionCreator></SessionCreator>
     </main>
 
     <footer style={{ margin: "3rem" }}>
@@ -19,4 +24,4 @@ const Home = () => (
   </div>
 )
 
-export default Home
+export default HomePage

@@ -3,7 +3,7 @@ import SelectableCard from "./SelectableCard"
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { StoryPointOptionID, StoryPointDetail, StoryPointRiskOptions } from "../services/StoryPointOptions";
+import { StoryPointOptionID, StoryPointTestingOptions } from "../services/StoryPointOptions";
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
 import Session from "./Session";
 
@@ -13,7 +13,7 @@ type Props = {
 type State = {
 };
 
-class RiskSelector extends React.Component<Props, State> {
+class TestingSelector extends React.Component<Props, State> {
     static contextType = Session;
 
     constructor(props: Props) {
@@ -27,7 +27,7 @@ class RiskSelector extends React.Component<Props, State> {
                     let update = (id: StoryPointOptionID) => {
                         runMutation({
                             name: this.context.participantName,
-                            riskOptionId: id
+                            testingOptionId: id
                         }, { merge: true }).then(res => { })
                     }
                     return (
@@ -38,18 +38,18 @@ class RiskSelector extends React.Component<Props, State> {
                                         <Row>
                                             <Col xs={12} sm={4}>
                                                 <SelectableCard onClick={() => {
-                                                    update(StoryPointRiskOptions.RiskBaseline.id)
-                                                }} option={StoryPointRiskOptions.RiskBaseline} current={StoryPointRiskOptions[d.value.riskOptionId]}></SelectableCard>
+                                                    update(StoryPointTestingOptions.TestingBaseline.id)
+                                                }} option={StoryPointTestingOptions.TestingBaseline} current={StoryPointTestingOptions[d.value.testingOptionId]}></SelectableCard>
                                             </Col>
                                             <Col xs={12} sm={4}>
                                                 <SelectableCard onClick={() => {
-                                                    update(StoryPointRiskOptions.RiskPlus1.id)
-                                                }} option={StoryPointRiskOptions.RiskPlus1} current={StoryPointRiskOptions[d.value.riskOptionId]}></SelectableCard>
+                                                    update(StoryPointTestingOptions.TestingPlus1.id)
+                                                }} option={StoryPointTestingOptions.TestingPlus1} current={StoryPointTestingOptions[d.value.testingOptionId]}></SelectableCard>
                                             </Col>
                                             <Col xs={12} sm={4}>
                                                 <SelectableCard onClick={() => {
-                                                    update(StoryPointRiskOptions.RiskPlus2.id)
-                                                }} option={StoryPointRiskOptions.RiskPlus2} current={StoryPointRiskOptions[d.value.riskOptionId]}></SelectableCard>
+                                                    update(StoryPointTestingOptions.TestingPlus2.id)
+                                                }} option={StoryPointTestingOptions.TestingPlus2} current={StoryPointTestingOptions[d.value.testingOptionId]}></SelectableCard>
                                             </Col>
                                         </Row>
                                     </Container>
@@ -63,4 +63,4 @@ class RiskSelector extends React.Component<Props, State> {
     }
 }
 
-export default RiskSelector
+export default TestingSelector

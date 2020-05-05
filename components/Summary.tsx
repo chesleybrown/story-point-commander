@@ -2,19 +2,21 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { StoryPointDetail } from "../services/StoryPointOptions";
+import Spinner from "react-bootstrap/Spinner";
+import { StoryPointSolutionEffortOptions, StoryPointTestingOptions, StoryPointRiskOptions } from "../services/StoryPointOptions";
 import Calculator from "../services/StoryPointCalculator";
+import { FirestoreCollection } from "@react-firebase/firestore";
+import Session from "./Session";
 
 type Props = {
-    currentSolutionEffortOption?: StoryPointDetail,
-    currentTestingOption?: StoryPointDetail,
-    currentRiskOption?: StoryPointDetail
 };
 
 type State = {
 };
 
 class Summary extends React.Component<Props, State> {
+    static contextType = Session;
+
     constructor(props: Props) {
         super(props)
     }
@@ -23,6 +25,7 @@ class Summary extends React.Component<Props, State> {
         return (
             <Container>
                 <Row>
+                    <Col xs={1}><h3>Name</h3></Col>
                     <Col xs={2}><h3>Story Points</h3></Col>
                     <Col xs={3}><h3>Solution &amp; Effort</h3></Col>
                     <Col xs={3}><h3>Testing</h3></Col>
@@ -31,24 +34,49 @@ class Summary extends React.Component<Props, State> {
                 <Row>
                     <Col><hr></hr></Col>
                 </Row>
-                <Row>
-                    <Col xs={2}>
-                        <p>{Calculator({
-                            solutionEffortOption: this.props.currentSolutionEffortOption,
-                            testingOption: this.props.currentTestingOption,
-                            riskOption: this.props.currentRiskOption
-                        })}</p>
-                    </Col>
-                    <Col xs={3}>
-                        <p>{this.props.currentSolutionEffortOption ? this.props.currentSolutionEffortOption.description : "…"}</p>
-                    </Col>
-                    <Col xs={3}>
-                        <p>{this.props.currentTestingOption ? this.props.currentTestingOption.description : "…"}</p>
-                    </Col>
-                    <Col xs={3}>
-                        <p>{this.props.currentRiskOption ? this.props.currentRiskOption.description : "…"}</p>
-                    </Col>
-                </Row>
+                <FirestoreCollection path={"/sessions/" + this.context.sessionId + "/participants"} limit={100}>
+                    {d => {
+                        let list: React.ReactElement[] = [];
+                        if (d.isLoading) {
+                            return (
+                                <Row className="justify-content-md-center">
+                                    <Col md="auto">
+                                        <Spinner animation="border"></Spinner>
+                                    </Col>
+                                </Row>
+                            )
+                        }
+                        if (!d.value) {
+                            return
+                        }
+                        d.value.forEach((value, index) => {
+                            list.push(
+                                <Row key={index}>
+                                    <Col xs={1}>{d.ids[index]}</Col>
+                                    <Col xs={2}>
+
+                                        <p>{Calculator({
+                                            solutionEffortOption: StoryPointSolutionEffortOptions[value.solutionEffortOptionId],
+                                            testingOption: StoryPointTestingOptions[value.testingOptionId],
+                                            riskOption: StoryPointRiskOptions[value.riskOptionId]
+                                        })}</p>
+                                    </Col>
+                                    <Col xs={3}>
+                                        <p>{value.solutionEffortOptionId ? StoryPointSolutionEffortOptions[value.solutionEffortOptionId].description : "…"}</p>
+                                    </Col>
+                                    <Col xs={3}>
+                                        <p>{value.testingOptionId ? StoryPointTestingOptions[value.testingOptionId].description : "…"}</p>
+                                    </Col>
+                                    <Col xs={3}>
+                                        <p>{value.riskOptionId ? StoryPointRiskOptions[value.riskOptionId].description : "…"}</p>
+                                    </Col>
+                                </Row>
+                            )
+                        });
+                        return list
+                    }}
+
+                </FirestoreCollection>
             </Container>
         );
     }
