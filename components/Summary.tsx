@@ -2,6 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Spinner from "react-bootstrap/Spinner";
 import { StoryPointSolutionEffortOptions, StoryPointTestingOptions, StoryPointRiskOptions } from "../services/StoryPointOptions";
 import Calculator from "../services/StoryPointCalculator";
 import { FirestoreCollection } from "@react-firebase/firestore";
@@ -36,6 +37,15 @@ class Summary extends React.Component<Props, State> {
                 <FirestoreCollection path={"/sessions/" + this.context.sessionId + "/participants"} limit={100}>
                     {d => {
                         let list: React.ReactElement[] = [];
+                        if (d.isLoading) {
+                            return (
+                                <Row className="justify-content-md-center">
+                                    <Col md="auto">
+                                        <Spinner animation="border"></Spinner>
+                                    </Col>
+                                </Row>
+                            )
+                        }
                         if (!d.value) {
                             return
                         }

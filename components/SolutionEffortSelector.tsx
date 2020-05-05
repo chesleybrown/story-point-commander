@@ -25,15 +25,27 @@ class SolutionEffortSelector extends React.Component<Props, State> {
         return (
             <FirestoreMutation type="set" path={"/sessions/" + this.context.sessionId + "/participants/" + this.context.participantName}>
                 {({ runMutation }) => {
-                    let update = (id: StoryPointOptionID) => {
-                        runMutation({
-                            name: this.context.participantName,
-                            solutionEffortOptionId: id
-                        }, { merge: true }).then(res => { })
+                    let update = async (id?: StoryPointOptionID) => {
+                        interface Participant {
+                            name?: string,
+                            solutionEffortOptionId?: string
+                        }
+                        let p: Participant = {};
+                        if (name) {
+                            p.name = this.context.participantName
+                        }
+                        if (id) {
+                            p.solutionEffortOptionId = id;
+                        }
+                        await runMutation(p, { merge: true })
                     }
                     return (
                         <FirestoreDocument path={"/sessions/" + this.context.sessionId + "/participants/" + this.context.participantName}>
                             {d => {
+                                if (!d.isLoading && !d.value) {
+                                    // Create participant if they don't already exist
+                                    update();
+                                }
                                 return (!d.value) ? <span></span> : (
                                     <Container>
                                         <Row>

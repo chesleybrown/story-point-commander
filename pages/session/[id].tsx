@@ -9,17 +9,22 @@ import Session from "../../components/Session";
 
 const SessionPage = () => {
     const router = useRouter();
-    const { id } = router.query;
+    const { id, name } = router.query;
 
     let sessionId: string;
     if (typeof id === 'string') {
         sessionId = id;
     }
 
-    const context = {
+    let participantName: string;
+    if (typeof name === 'string') {
+        participantName = name;
+    }
+
+    const CurrentSessionContext = {
         sessionId: sessionId,
-        participantName: "Chesley"
-    };
+        participantName: participantName
+    }
 
     return (
         <div>
@@ -29,21 +34,21 @@ const SessionPage = () => {
             </Head>
 
             <main>
-                <Session.Provider value={context}>
+                <Session.Provider value={CurrentSessionContext}>
                     <Navbar bg="light">
                         <Navbar.Brand href="#home">Story Point Commander</Navbar.Brand>
                         <Nav>
                             <Nav.Link eventKey="disabled" disabled>
-                                <FirestoreDocument path={"/sessions/" + context.sessionId}>
+                                <FirestoreDocument path={"/sessions/" + CurrentSessionContext.sessionId}>
                                     {d => {
-                                        return d.isLoading ? <Spinner animation="border" size="sm" /> : <span>{context.sessionId}</span>;
+                                        return d.isLoading ? <Spinner animation="border" size="sm" /> : <span>{CurrentSessionContext.sessionId}</span>;
                                     }}
                                 </FirestoreDocument>
                             </Nav.Link>
                         </Nav>
                         <Navbar.Collapse className="justify-content-end">
                             <Navbar.Text>
-                                Welcome <span>{context.participantName}</span>
+                                Welcome <span>{CurrentSessionContext.participantName}</span>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Navbar>

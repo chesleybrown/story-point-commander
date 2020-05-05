@@ -4,6 +4,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Link from "next/link";
+import { SetCurrentSessionContext } from "../components/Session";
 
 const Home = () => (
   <div>
@@ -19,11 +23,24 @@ const Home = () => (
       <br />
       <Container>
         <Row className="justify-content-md-center">
-          <Col xs lg="2"></Col>
           <Col md="auto">
-            <Button size="lg" variant="primary">Start New Session</Button>
+            <Form inline>
+              <FormControl onChange={(e) => {
+                SetCurrentSessionContext({
+                  sessionId: "rBGiHZe88uCmrgkARPTM",
+                  participantName: e.target.value
+                });
+              }} type="text" placeholder="What's your name?" className="mr-sm-2"></FormControl>
+            </Form>
           </Col>
-          <Col xs lg="2"></Col>
+        </Row>
+        <br />
+        <Row className="justify-content-md-center">
+          <Col md="auto">
+            <Link href="/session/rBGiHZe88uCmrgkARPTM?name=Chesley">
+              <Button size="lg" variant="primary">Start New Session</Button>
+            </Link>
+          </Col>
         </Row>
       </Container>
     </main>

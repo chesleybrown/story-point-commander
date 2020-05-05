@@ -55,7 +55,7 @@ class StoryPointCommander extends React.Component<Props, State> {
                 <h2>Summary</h2>
                 <Summary></Summary>
 
-                <hr></hr>
+                {/* <hr></hr>
 
                 <Container>
                     <Row className="justify-content-md-center">
@@ -65,7 +65,7 @@ class StoryPointCommander extends React.Component<Props, State> {
                         </Col>
                         <Col xs lg="2"></Col>
                     </Row>
-                </Container>
+                </Container> */}
             </Container>
         );
     }
