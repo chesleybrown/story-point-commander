@@ -6,8 +6,8 @@ interface SessionContext {
 }
 
 export let CurrentSessionContext: SessionContext = {
-    sessionId: "rBGiHZe88uCmrgkARPTM",
-    participantName: "Chesley"
+    sessionId: "",
+    participantName: ""
 };
 let Session = React.createContext({
     sessionId: "",
@@ -16,8 +16,8 @@ let Session = React.createContext({
 
 export function SetCurrentSessionContext(ctx: SessionContext) {
     CurrentSessionContext = {
-        sessionId: "rBGiHZe88uCmrgkARPTM",
-        participantName: "Chesley"
+        sessionId: "",
+        participantName: ""
     };
 }
 

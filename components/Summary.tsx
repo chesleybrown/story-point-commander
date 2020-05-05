@@ -52,7 +52,7 @@ class Summary extends React.Component<Props, State> {
                         d.value.forEach((value, index) => {
                             list.push(
                                 <Row key={index}>
-                                    <Col xs={1}>{value.name}</Col>
+                                    <Col xs={1}>{d.ids[index]}</Col>
                                     <Col xs={2}>
 
                                         <p>{Calculator({

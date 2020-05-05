@@ -31,7 +31,7 @@ class SolutionEffortSelector extends React.Component<Props, State> {
                             solutionEffortOptionId?: string
                         }
                         let p: Participant = {};
-                        if (name) {
+                        if (this.context.name) {
                             p.name = this.context.participantName
                         }
                         if (id) {
