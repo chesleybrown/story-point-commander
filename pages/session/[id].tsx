@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Spinner from "react-bootstrap/Spinner";
 import { FirestoreDocument } from "@react-firebase/firestore";
 import Session from "../../components/Session";
+import Footer from "../../components/Footer";
 
 const SessionPage = () => {
     const router = useRouter();
@@ -57,10 +58,7 @@ const SessionPage = () => {
                 </Session.Provider>
             </main>
 
-            <footer style={{ margin: "3rem" }}>
-                <hr></hr>
-                <p style={{ textAlign: "center" }}>Thrown together by <a target="_blank" href="https://github.com/chesleybrown">chesleybrown</a> 👨🏻‍💻</p>
-            </footer>
+            <Footer></Footer>
         </div>
     )
 }

@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Link from "next/link";
-import { SetCurrentSessionContext } from "../components/Session";
 
 type Props = {
 };
@@ -36,16 +35,11 @@ class RiskMemo extends React.Component<Props, State> {
                 <Row className="justify-content-md-center">
                     <Col md="auto">
                         <Form inline>
-                            <FormControl onChange={this.setName} type="text" placeholder="What's your name?" className="mr-sm-2"></FormControl>
+                            <FormControl size="lg" onChange={this.setName} type="text" placeholder="What's your name?" className="mr-sm-2"></FormControl>
+                            <Link href={"/session/rBGiHZe88uCmrgkARPTM?name=" + this.state.participantName}>
+                                <Button size="lg" variant="primary" disabled={(this.state.participantName) ? false : true}>Join Session</Button>
+                            </Link>
                         </Form>
-                    </Col>
-                </Row>
-                <br />
-                <Row className="justify-content-md-center">
-                    <Col md="auto">
-                        <Link href={"/session/rBGiHZe88uCmrgkARPTM?name=" + this.state.participantName}>
-                            <Button size="lg" variant="primary">Start New Session</Button>
-                        </Link>
                     </Col>
                 </Row>
             </Container>

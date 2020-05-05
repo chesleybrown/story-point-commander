@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Navbar from "react-bootstrap/Navbar";
 import SessionCreator from "../components/SessionCreator";
+import Footer from "../components/Footer"
 
 const HomePage = () => (
   <div>
@@ -17,10 +18,7 @@ const HomePage = () => (
       <SessionCreator></SessionCreator>
     </main>
 
-    <footer style={{ margin: "3rem" }}>
-      <hr></hr>
-      <p style={{ textAlign: "center" }}>Thrown together by <a target="_blank" href="https://github.com/chesleybrown">chesleybrown</a> 👨🏻‍💻</p>
-    </footer>
+    <Footer></Footer>
   </div>
 )
 
