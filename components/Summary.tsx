@@ -49,7 +49,7 @@ class Summary extends React.Component<Props, State> {
                                         <p>{Calculator({
                                             solutionEffortOption: this.props.currentSolutionEffortOption,
                                             testingOption: this.props.currentTestingOption,
-                                            riskOption: this.props.currentRiskOption
+                                            riskOption: StoryPointRiskOptions[value.riskOptionId]
                                         })}</p>
                                     </Col>
                                     <Col xs={3}>

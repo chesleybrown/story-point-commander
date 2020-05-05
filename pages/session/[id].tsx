@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Spinner from "react-bootstrap/Spinner";
 import { FirestoreDocument } from "@react-firebase/firestore";
+import CurrentParticipant from "../../components/CurrentParticipant";
 
 const Session = () => {
     const router = useRouter();
@@ -24,25 +25,27 @@ const Session = () => {
             </Head>
 
             <main>
-                <Navbar bg="light">
-                    <Navbar.Brand href="#home">Story Point Commander</Navbar.Brand>
-                    <Nav>
-                        <Nav.Link eventKey="disabled" disabled>
-                            <FirestoreDocument path={"/sessions/" + id}>
-                                {d => {
-                                    return d.isLoading ? <Spinner animation="border" size="sm" /> : <span>{id}</span>;
-                                }}
-                            </FirestoreDocument>
-                        </Nav.Link>
-                    </Nav>
-                    <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
-                            Welcome <span>{name}</span>
-                        </Navbar.Text>
-                    </Navbar.Collapse>
-                </Navbar>
-                <br />
-                <StoryPointCommander sessionId={sessionId}></StoryPointCommander>
+                <CurrentParticipant.Provider value="Chesley">
+                    <Navbar bg="light">
+                        <Navbar.Brand href="#home">Story Point Commander</Navbar.Brand>
+                        <Nav>
+                            <Nav.Link eventKey="disabled" disabled>
+                                <FirestoreDocument path={"/sessions/" + id}>
+                                    {d => {
+                                        return d.isLoading ? <Spinner animation="border" size="sm" /> : <span>{id}</span>;
+                                    }}
+                                </FirestoreDocument>
+                            </Nav.Link>
+                        </Nav>
+                        <Navbar.Collapse className="justify-content-end">
+                            <Navbar.Text>
+                                Welcome <span>{name}</span>
+                            </Navbar.Text>
+                        </Navbar.Collapse>
+                    </Navbar>
+                    <br />
+                    <StoryPointCommander sessionId={sessionId}></StoryPointCommander>
+                </CurrentParticipant.Provider>
             </main>
 
             <footer style={{ margin: "3rem" }}>

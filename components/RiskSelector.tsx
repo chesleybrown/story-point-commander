@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import { StoryPointOptionID, StoryPointDetail, StoryPointRiskOptions } from "../services/StoryPointOptions";
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
+import CurrentParticipant from "./CurrentParticipant";
 
 type Props = {
     sessionId: string
@@ -17,6 +18,7 @@ type State = {
 };
 
 class RiskSelector extends React.Component<Props, State> {
+    static contextType = CurrentParticipant;
     constructor(props: Props) {
         super(props)
         this.selected = this.selected.bind(this);
@@ -30,19 +32,16 @@ class RiskSelector extends React.Component<Props, State> {
 
     render() {
         return (
-
-            <FirestoreMutation type="set" path={"/sessions/" + this.props.sessionId + "/participants/wvyqp45U48XtuMpsj2BV"}>
+            <FirestoreMutation type="set" path={"/sessions/" + this.props.sessionId + "/participants/" + this.context}>
                 {({ runMutation }) => {
-                    let update = function (id: StoryPointOptionID) {
+                    let update = (id: StoryPointOptionID) => {
                         runMutation({
-                            name: "Chesley",
+                            name: this.context,
                             riskOptionId: id
-                        }, { merge: true }).then(res => {
-                            console.log("Ran mutation ", res);
-                        })
+                        }, { merge: true }).then(res => { })
                     }
                     return (
-                        <FirestoreDocument path={"/sessions/" + this.props.sessionId + "/participants/wvyqp45U48XtuMpsj2BV"}>
+                        <FirestoreDocument path={"/sessions/" + this.props.sessionId + "/participants/" + this.context}>
                             {d => {
                                 return (!d.value) ? <span></span> : (
                                     <Container>

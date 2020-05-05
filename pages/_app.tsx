@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import FirebaseConfig from "../services/Firebase";
+import FirebaseConfig from "../services/FirebaseConfig";
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import { FirestoreProvider } from "@react-firebase/firestore";
