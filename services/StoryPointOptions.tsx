@@ -41,7 +41,7 @@ export enum StoryPointOptionCategory {
     Risk = "Risk"
 }
 
-export class StoryPointBriefOptions {
+export class StoryPointSolutionEffortOptions {
     static Brief1: StoryPointDetail = {
         id: StoryPointOptionID.Brief1,
         value: 1,
@@ -84,9 +84,6 @@ export class StoryPointBriefOptions {
         category: StoryPointOptionCategory.Brief,
         description: <span><strong>Very large</strong>, complex feature; requires <strong>significant</strong> research or cross-team coordination</span>
     }
-}
-
-export class StoryPointSolutionOptions {
     static Solution1: StoryPointDetail = {
         id: StoryPointOptionID.Solution1,
         value: 1,
@@ -129,9 +126,6 @@ export class StoryPointSolutionOptions {
         category: StoryPointOptionCategory.Solution,
         description: <span>Concept and the goals <strong>understood</strong>; solution requires <strong>significant research</strong> that can only be done as part of the work</span>
     }
-}
-
-export class StoryPointEffortOptions {
     static Effort1: StoryPointDetail = {
         id: StoryPointOptionID.Effort1,
         value: 1,

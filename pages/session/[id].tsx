@@ -5,17 +5,21 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Spinner from "react-bootstrap/Spinner";
 import { FirestoreDocument } from "@react-firebase/firestore";
-import CurrentParticipant from "../../components/CurrentParticipant";
+import Session from "../../components/Session";
 
-const Session = () => {
+const SessionPage = () => {
     const router = useRouter();
     const { id } = router.query;
-    const name = "Chesley";
 
     let sessionId: string;
     if (typeof id === 'string') {
         sessionId = id;
     }
+
+    const context = {
+        sessionId: sessionId,
+        participantName: "Chesley"
+    };
 
     return (
         <div>
@@ -25,27 +29,27 @@ const Session = () => {
             </Head>
 
             <main>
-                <CurrentParticipant.Provider value="Chesley">
+                <Session.Provider value={context}>
                     <Navbar bg="light">
                         <Navbar.Brand href="#home">Story Point Commander</Navbar.Brand>
                         <Nav>
                             <Nav.Link eventKey="disabled" disabled>
-                                <FirestoreDocument path={"/sessions/" + id}>
+                                <FirestoreDocument path={"/sessions/" + context.sessionId}>
                                     {d => {
-                                        return d.isLoading ? <Spinner animation="border" size="sm" /> : <span>{id}</span>;
+                                        return d.isLoading ? <Spinner animation="border" size="sm" /> : <span>{context.sessionId}</span>;
                                     }}
                                 </FirestoreDocument>
                             </Nav.Link>
                         </Nav>
                         <Navbar.Collapse className="justify-content-end">
                             <Navbar.Text>
-                                Welcome <span>{name}</span>
+                                Welcome <span>{context.participantName}</span>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Navbar>
                     <br />
-                    <StoryPointCommander sessionId={sessionId}></StoryPointCommander>
-                </CurrentParticipant.Provider>
+                    <StoryPointCommander></StoryPointCommander>
+                </Session.Provider>
             </main>
 
             <footer style={{ margin: "3rem" }}>
@@ -56,4 +60,4 @@ const Session = () => {
     )
 }
 
-export default Session
+export default SessionPage
