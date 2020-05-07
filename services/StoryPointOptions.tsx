@@ -47,7 +47,7 @@ export class StoryPointSolutionEffortOptions {
         value: 1,
         modifier: 0,
         category: StoryPointOptionCategory.Brief,
-        description: <span><strong>Insignificant </strong>, one line change; typo</span>
+        description: <span><strong>Insignificant</strong>, one line change; typo</span>
     }
     static Brief2: StoryPointDetail = {
         id: StoryPointOptionID.Brief2,
@@ -138,7 +138,7 @@ export class StoryPointSolutionEffortOptions {
         value: 2,
         modifier: 0,
         category: StoryPointOptionCategory.Effort,
-        description: <span>Will have to <strong>focus</strong>, requires meaningful <strong>code review and tests</strong>, needs <strong>one</strong> session of concentration</span>
+        description: <span>Pretty <strong>easy</strong>, sanity check level code review</span>
     }
     static Effort3: StoryPointDetail = {
         id: StoryPointOptionID.Effort3,
