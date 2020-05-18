@@ -1,4 +1,5 @@
 import React from "react";
+import * as firebase from 'firebase/app';
 
 interface SessionContext {
     sessionId: string,
@@ -19,6 +20,34 @@ export function SetCurrentSessionContext(ctx: SessionContext) {
         sessionId: "",
         participantName: ""
     };
+}
+
+export function ShowResults(sessionID) {
+    let db = firebase.firestore();
+    let p = {
+        hidden: false
+    }
+    db.collection("sessions").doc(sessionID).update(p)
+        .then(function () {
+            console.log("Document successfully written!");
+        })
+        .catch(function (error) {
+            console.error("Error writing document: ", error);
+        });
+}
+
+export function HideResults(sessionID) {
+    let db = firebase.firestore();
+    let p = {
+        hidden: true
+    }
+    db.collection("sessions").doc(sessionID).update(p)
+        .then(function () {
+            console.log("Document successfully written!");
+        })
+        .catch(function (error) {
+            console.error("Error writing document: ", error);
+        });
 }
 
 export default Session
