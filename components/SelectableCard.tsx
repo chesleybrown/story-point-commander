@@ -24,13 +24,14 @@ class SelectableCard extends React.Component<Props, State> {
 
     render() {
         return (
-            <Card style={{ minHeight: "14rem" }}>
+            <Card style={{ minHeight: "12rem" }}>
                 <Card.Body>
-                    <Card.Title>{this.props.option.category} {this.props.option.value || "+" + this.props.option.modifier}</Card.Title>
+                    <Card.Title>
+                        <Button onClick={this.click} variant={this.props.current && this.props.current.id == this.props.option.id ? "primary" : "secondary"}>
+                            {this.props.option.category} {this.props.option.value || "+" + this.props.option.modifier}
+                        </Button>
+                    </Card.Title>
                     <Card.Text>{this.props.option.description}</Card.Text>
-                    <Button onClick={this.click} variant={this.props.current && this.props.current.id == this.props.option.id ? "primary" : "secondary"}>
-                        Select
-                    </Button>
                 </Card.Body>
             </Card>
         );
