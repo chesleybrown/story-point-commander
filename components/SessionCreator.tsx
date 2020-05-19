@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Link from "next/link";
+import { CreateSession } from "./Session";
 
 type Props = {
 };
@@ -14,13 +15,14 @@ type State = {
     participantName: string
 };
 
-class RiskMemo extends React.Component<Props, State> {
+class SessionCreator extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
             participantName: ""
         };
         this.setName = this.setName.bind(this);
+        this.submit = this.submit.bind(this);
     }
 
     setName(e) {
@@ -29,16 +31,19 @@ class RiskMemo extends React.Component<Props, State> {
         });
     }
 
+    submit(e) {
+        e.preventDefault();
+        CreateSession(this.state.participantName);
+    }
+
     render() {
         return (
             <Container>
                 <Row className="justify-content-md-center">
                     <Col md="auto">
-                        <Form inline>
+                        <Form inline onSubmit={this.submit}>
                             <FormControl size="lg" onChange={this.setName} type="text" placeholder="What's your name?" className="mr-sm-2"></FormControl>
-                            <Link href={"/session/rBGiHZe88uCmrgkARPTM?name=" + this.state.participantName}>
-                                <Button size="lg" variant="primary" disabled={(this.state.participantName) ? false : true}>Join Session</Button>
-                            </Link>
+                            <Button type="submit" size="lg" variant="primary" disabled={(this.state.participantName) ? false : true}>Start Session</Button>
                         </Form>
                     </Col>
                 </Row>
@@ -47,4 +52,4 @@ class RiskMemo extends React.Component<Props, State> {
     }
 }
 
-export default RiskMemo
+export default SessionCreator
