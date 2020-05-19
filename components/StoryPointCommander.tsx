@@ -1,14 +1,13 @@
 import React from "react";
-import SolutionEffortSelector from "../components/SolutionEffortSelector"
-import SolutionEffortMemo from "../components/SolutionEffortMemo"
-import RiskMemo from "../components/RiskMemo"
-import TestingSelector from "./TestingSelector"
-import RiskSelector from "../components/RiskSelector"
-import Summary from "../components/Summary"
-import Button from "react-bootstrap/Button";
+import SolutionEffortSelector from "../components/SolutionEffortSelector";
+import SolutionEffortMemo from "../components/SolutionEffortMemo";
+import RiskMemo from "../components/RiskMemo";
+import TestingSelector from "./TestingSelector";
+import RiskSelector from "../components/RiskSelector";
+import Summary from "../components/Summary";
+import SummaryActions from "../components/SummaryActions";
+import SelectionActions from "./SelectionActions";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 type Props = {
 };
@@ -50,22 +49,14 @@ class StoryPointCommander extends React.Component<Props, State> {
                 <hr></hr>
                 <RiskMemo></RiskMemo>
 
+                <SelectionActions></SelectionActions>
+
                 <hr></hr>
 
                 <h2>Summary</h2>
                 <Summary></Summary>
 
-                {/* <hr></hr>
-
-                <Container>
-                    <Row className="justify-content-md-center">
-                        <Col xs lg="2"></Col>
-                        <Col md="auto">
-                            <Button size="lg" variant="danger" onClick={this.clear}>Clear</Button>
-                        </Col>
-                        <Col xs lg="2"></Col>
-                    </Row>
-                </Container> */}
+                <SummaryActions></SummaryActions>
             </Container>
         );
     }
