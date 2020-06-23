@@ -14,7 +14,7 @@ const StoryPointCommander = () => {
     <Container>
       <SolutionEffortMemo></SolutionEffortMemo>
 
-      <h2>Solution &amp; Effort</h2>
+      <h3>Solution &amp; Effort</h3>
       <SolutionEffortSelector></SolutionEffortSelector>
 
       <hr></hr>
@@ -24,7 +24,7 @@ const StoryPointCommander = () => {
 
       <hr></hr>
 
-      <h2>Risk</h2>
+      <h3>Risk</h3>
       <RiskSelector></RiskSelector>
       <hr></hr>
       <RiskMemo></RiskMemo>
@@ -33,7 +33,7 @@ const StoryPointCommander = () => {
 
       <hr></hr>
 
-      <h2>Summary</h2>
+      <h3>Summary</h3>
       <Summary></Summary>
 
       <SummaryActions></SummaryActions>

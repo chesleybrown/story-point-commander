@@ -2,6 +2,8 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { StoryPointDetail } from "../services/StoryPointOptions";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 type Props = {
   current?: StoryPointDetail;
@@ -15,24 +17,45 @@ const SelectableCard = (props: Props) => {
   }
 
   return (
-    <Card style={{ minHeight: "12rem" }}>
-      <Card.Body>
-        <Card.Title>
-          <Button
-            onClick={click}
-            variant={
-              props.current && props.current.id == props.option.id
-                ? "primary"
-                : "secondary"
-            }
-          >
-            {props.option.category}{" "}
-            {props.option.value || "+" + props.option.modifier}
-          </Button>
-        </Card.Title>
-        <Card.Text>{props.option.description}</Card.Text>
-      </Card.Body>
-    </Card>
+    <OverlayTrigger
+      placement="top"
+      overlay={
+        <Tooltip id={"selectable-card-tooltip-" + props.option.id}>
+          {props.option.description}
+        </Tooltip>
+      }
+    >
+      <Button
+        style={{ display: "flex", justifyContent: "center" }}
+        onClick={click}
+        variant={
+          props.current && props.current.id == props.option.id
+            ? "primary"
+            : "secondary"
+        }
+        block
+      >
+        <strong>
+          {props.option.category}{" "}
+          {props.option.value || "+" + props.option.modifier}
+        </strong>
+        <span
+          style={{
+            fontSize: "0.75em",
+            lineHeight: "2em",
+            paddingLeft: "1em",
+            verticalAlign: "center",
+            textAlign: "left",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+            flex: 1,
+            overflow: "hidden",
+          }}
+        >
+          {props.option.description}
+        </span>
+      </Button>
+    </OverlayTrigger>
   );
 };
 
