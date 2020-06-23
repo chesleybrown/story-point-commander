@@ -16,7 +16,7 @@ type State = {}
 class StoryPointCommander extends React.Component<Props, State> {
     constructor(props) {
         super(props)
-        this.clear = this.clear.bind(this);
+        this.clear = this.clear.bind(this)
     }
 
     clear() {

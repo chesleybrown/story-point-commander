@@ -15,7 +15,7 @@ type Props = {}
 type State = {}
 
 class Summary extends React.Component<Props, State> {
-    static contextType = Session;
+    static contextType = Session
 
     constructor(props: Props) {
         super(props)
@@ -41,7 +41,7 @@ class Summary extends React.Component<Props, State> {
                             </Row>
                             <FirestoreCollection path={"/sessions/" + this.context.sessionId + "/participants"} limit={100}>
                                 {d => {
-                                    let list: React.ReactElement[] = [];
+                                    let list: React.ReactElement[] = []
                                     if (d.isLoading) {
                                         return (
                                             <Row className="justify-content-md-center">
@@ -55,7 +55,7 @@ class Summary extends React.Component<Props, State> {
                                         return
                                     }
                                     d.value.forEach((value: Participant, index) => {
-                                        let badge = <span></span>;
+                                        let badge = <span></span>
                                         if (value.ready) {
                                             badge = <Badge pill variant="success">Ready</Badge>
                                         }
@@ -77,7 +77,7 @@ class Summary extends React.Component<Props, State> {
                                                 </Col>
                                             </Row>
                                         )
-                                    });
+                                    })
                                     return list
                                 }}
 

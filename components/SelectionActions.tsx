@@ -11,7 +11,7 @@ type Props = {}
 type State = {}
 
 class SelectionActions extends React.Component<Props, State> {
-    static contextType = Session;
+    static contextType = Session
 
     constructor(props: Props) {
         super(props)

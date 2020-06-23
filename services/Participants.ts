@@ -9,7 +9,7 @@ export type Participant = {
 }
 
 export function ClearParticipantResponses(sessionID: string, name: string) {
-    let db = firebase.firestore();
+    let db = firebase.firestore()
     let p: Participant = {
         solutionEffortOptionId: 0,
         testingOptionId: 0,

@@ -9,12 +9,12 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 const SessionJoiner = () => {
-    const router = useRouter();
-    const { id } = router.query;
-    const [name, setName] = useState("");
+    const router = useRouter()
+    const { id } = router.query
+    const [name, setName] = useState("")
 
     function submit(e) {
-        e.preventDefault();
+        e.preventDefault()
     }
 
     return (

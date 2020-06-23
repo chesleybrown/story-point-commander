@@ -4,21 +4,21 @@ import Card from "react-bootstrap/Card"
 import { StoryPointDetail } from "../services/StoryPointOptions"
 
 type Props = {
-    current?: StoryPointDetail;
-    option: StoryPointDetail;
-    onClick: (detail: StoryPointDetail) => void;
+    current?: StoryPointDetail
+    option: StoryPointDetail
+    onClick: (detail: StoryPointDetail) => void
 }
 
 type State = {}
 
 class SelectableCard extends React.Component<Props, State> {
     constructor(props: Props) {
-        super(props);
-        this.click = this.click.bind(this);
+        super(props)
+        this.click = this.click.bind(this)
     }
 
     click() {
-        this.props.onClick(this.props.option);
+        this.props.onClick(this.props.option)
     }
 
     render() {

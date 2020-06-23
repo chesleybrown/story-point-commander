@@ -15,23 +15,23 @@ type State = {
 
 class SessionCreator extends React.Component<Props, State> {
     constructor(props: Props) {
-        super(props);
+        super(props)
         this.state = {
             participantName: ""
-        };
-        this.setName = this.setName.bind(this);
-        this.submit = this.submit.bind(this);
+        }
+        this.setName = this.setName.bind(this)
+        this.submit = this.submit.bind(this)
     }
 
     setName(e) {
         this.setState({
             participantName: e.target.value
-        });
+        })
     }
 
     submit(e) {
-        e.preventDefault();
-        CreateSession(this.state.participantName);
+        e.preventDefault()
+        CreateSession(this.state.participantName)
     }
 
     render() {

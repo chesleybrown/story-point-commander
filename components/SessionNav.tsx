@@ -24,7 +24,7 @@ const SessionNav = () => {
                         <Nav.Link>
                             <FirestoreDocument path={"/sessions/" + ctx.sessionId}>
                                 {d => {
-                                    return d.isLoading ? <Spinner animation="border" size="sm" /> : <span onClick={() => navigator.clipboard.writeText(window.location.href.split("?")[0])}>{ctx.sessionId}</span>;
+                                    return d.isLoading ? <Spinner animation="border" size="sm" /> : <span onClick={() => navigator.clipboard.writeText(window.location.href.split("?")[0])}>{ctx.sessionId}</span>
                                 }}
                             </FirestoreDocument>
                         </Nav.Link>

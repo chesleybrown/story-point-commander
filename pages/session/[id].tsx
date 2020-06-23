@@ -7,17 +7,17 @@ import SessionJoiner from "../../components/SessionJoiner"
 import SessionNav from "../../components/SessionNav"
 
 const SessionPage = () => {
-    const router = useRouter();
-    const { id, name } = router.query;
+    const router = useRouter()
+    const { id, name } = router.query
 
-    let sessionId: string;
+    let sessionId: string
     if (typeof id === "string") {
-        sessionId = id;
+        sessionId = id
     }
 
-    let participantName: string;
+    let participantName: string
     if (typeof name === "string") {
-        participantName = name;
+        participantName = name
     }
 
     const CurrentSessionContext = {
@@ -25,11 +25,11 @@ const SessionPage = () => {
         participantName: participantName
     }
 
-    let content: React.ReactElement;
+    let content: React.ReactElement
     if (!participantName) {
-        content = <SessionJoiner></SessionJoiner>;
+        content = <SessionJoiner></SessionJoiner>
     } else {
-        content = <StoryPointCommander></StoryPointCommander>;
+        content = <StoryPointCommander></StoryPointCommander>
     }
 
     return (

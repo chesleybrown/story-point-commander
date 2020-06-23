@@ -13,7 +13,7 @@ type Props = {}
 type State = {}
 
 class SolutionEffortSelector extends React.Component<Props, State> {
-    static contextType = Session;
+    static contextType = Session
 
     constructor(props: Props) {
         super(props)
@@ -28,12 +28,12 @@ class SolutionEffortSelector extends React.Component<Props, State> {
                             name?: string,
                             solutionEffortOptionId?: string
                         }
-                        let p: Participant = {};
+                        let p: Participant = {}
                         if (this.context.name) {
                             p.name = this.context.participantName
                         }
                         if (id) {
-                            p.solutionEffortOptionId = id;
+                            p.solutionEffortOptionId = id
                         }
                         await runMutation(p, { merge: true })
                     }
@@ -42,7 +42,7 @@ class SolutionEffortSelector extends React.Component<Props, State> {
                             {d => {
                                 if (!d.isLoading && !d.value) {
                                     // Create participant if they don't already exist
-                                    update();
+                                    update()
                                 }
                                 return (!d.value) ? <span></span> : (
                                     <Container>

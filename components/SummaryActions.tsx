@@ -10,7 +10,7 @@ type Props = {}
 type State = {}
 
 class SummaryActions extends React.Component<Props, State> {
-    static contextType = Session;
+    static contextType = Session
 
     constructor(props: Props) {
         super(props)

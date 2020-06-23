@@ -12,7 +12,7 @@ type Props = {}
 type State = {}
 
 class TestingSelector extends React.Component<Props, State> {
-    static contextType = Session;
+    static contextType = Session
 
     constructor(props: Props) {
         super(props)
