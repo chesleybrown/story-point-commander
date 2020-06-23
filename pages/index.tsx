@@ -1,7 +1,7 @@
-import Head from "next/head"
-import Navbar from "react-bootstrap/Navbar"
-import SessionCreator from "../components/SessionCreator"
-import Footer from "../components/Footer"
+import Head from "next/head";
+import Navbar from "react-bootstrap/Navbar";
+import SessionCreator from "../components/SessionCreator";
+import Footer from "../components/Footer";
 
 const HomePage = () => (
   <div>
@@ -20,6 +20,6 @@ const HomePage = () => (
 
     <Footer></Footer>
   </div>
-)
+);
 
-export default HomePage
+export default HomePage;
