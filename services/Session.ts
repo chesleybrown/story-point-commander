@@ -2,7 +2,7 @@ import React from "react";
 import Router from "next/router";
 import * as firebase from "firebase/app";
 
-export function CreateSession(name: string) {
+export function CreateSession() {
   let db = firebase.firestore();
   let p = {
     hidden: true,
@@ -10,7 +10,7 @@ export function CreateSession(name: string) {
   db.collection("sessions")
     .add(p)
     .then(function (doc) {
-      Router.push("/session/" + doc.id + "?name=" + name);
+      Router.push("/session/" + doc.id);
     })
     .catch(function (error) {
       console.error("CreateSession error: ", error);
@@ -41,6 +41,14 @@ export function HideResults(sessionID: string) {
     .catch(function (error) {
       console.error("HideResults error: ", error);
     });
+}
+
+export function SetParticipantName(name: string) {
+  window.localStorage.setItem("name", name);
+}
+
+export function GetParticipantName() {
+  return window.localStorage.getItem("name");
 }
 
 let Session = React.createContext({

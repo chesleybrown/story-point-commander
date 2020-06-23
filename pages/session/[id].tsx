@@ -1,24 +1,21 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
 import StoryPointCommander from "../../components/StoryPointCommander";
-import Session from "../../services/Session";
+import Session, { GetParticipantName } from "../../services/Session";
 import Footer from "../../components/Footer";
 import SessionJoiner from "../../components/SessionJoiner";
 import SessionNav from "../../components/SessionNav";
 
 const SessionPage = () => {
   const router = useRouter();
-  const { id, name } = router.query;
+  const { id } = router.query;
 
   let sessionId: string;
   if (typeof id === "string") {
     sessionId = id;
   }
 
-  let participantName: string;
-  if (typeof name === "string") {
-    participantName = name;
-  }
+  let participantName = GetParticipantName();
 
   const CurrentSessionContext = {
     sessionId: sessionId,
