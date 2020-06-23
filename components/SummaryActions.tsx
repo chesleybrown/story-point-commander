@@ -1,19 +1,13 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Spinner from "react-bootstrap/Spinner";
-import { StoryPointSolutionEffortOptions, StoryPointTestingOptions, StoryPointRiskOptions } from "../services/StoryPointOptions";
-import { FirestoreMutation } from "@react-firebase/firestore";
-import Session, { ShowResults, HideResults } from "./Session";
-import Button from "react-bootstrap/Button";
-import { ParticipantReady, ClearParticipantResponses } from "../services/Participants";
+import React from "react"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Session, { ShowResults, HideResults } from "./Session"
+import Button from "react-bootstrap/Button"
 
-type Props = {
-};
+type Props = {}
 
-type State = {
-};
+type State = {}
 
 class SummaryActions extends React.Component<Props, State> {
     static contextType = Session;
@@ -35,7 +29,7 @@ class SummaryActions extends React.Component<Props, State> {
                     </Col>
                 </Row>
             </Container>
-        );
+        )
     }
 }
 

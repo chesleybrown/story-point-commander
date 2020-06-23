@@ -1,26 +1,22 @@
-import Router, { useRouter } from 'next/router'
+import { useRouter } from "next/router"
 import Head from "next/head"
 import StoryPointCommander from "../../components/StoryPointCommander"
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Spinner from "react-bootstrap/Spinner";
-import { FirestoreDocument } from "@react-firebase/firestore";
-import Session from "../../components/Session";
-import Footer from "../../components/Footer";
-import SessionJoiner from "../../components/SessionJoiner";
-import SessionNav from "../../components/SessionNav";
+import Session from "../../components/Session"
+import Footer from "../../components/Footer"
+import SessionJoiner from "../../components/SessionJoiner"
+import SessionNav from "../../components/SessionNav"
 
 const SessionPage = () => {
     const router = useRouter();
     const { id, name } = router.query;
 
     let sessionId: string;
-    if (typeof id === 'string') {
+    if (typeof id === "string") {
         sessionId = id;
     }
 
     let participantName: string;
-    if (typeof name === 'string') {
+    if (typeof name === "string") {
         participantName = name;
     }
 

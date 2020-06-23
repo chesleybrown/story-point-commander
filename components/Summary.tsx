@@ -1,20 +1,18 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Spinner from "react-bootstrap/Spinner";
-import Badge from "react-bootstrap/Badge";
-import { StoryPointSolutionEffortOptions, StoryPointTestingOptions, StoryPointRiskOptions } from "../services/StoryPointOptions";
-import Calculator from "../services/StoryPointCalculator";
-import { FirestoreDocument, FirestoreCollection } from "@react-firebase/firestore";
-import Session from "./Session";
-import { Participant } from "../services/Participants";
+import React from "react"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Spinner from "react-bootstrap/Spinner"
+import Badge from "react-bootstrap/Badge"
+import { StoryPointSolutionEffortOptions, StoryPointTestingOptions, StoryPointRiskOptions } from "../services/StoryPointOptions"
+import Calculator from "../services/StoryPointCalculator"
+import { FirestoreDocument, FirestoreCollection } from "@react-firebase/firestore"
+import Session from "./Session"
+import { Participant } from "../services/Participants"
 
-type Props = {
-};
+type Props = {}
 
-type State = {
-};
+type State = {}
 
 class Summary extends React.Component<Props, State> {
     static contextType = Session;
@@ -88,7 +86,7 @@ class Summary extends React.Component<Props, State> {
                     )
                 }}
             </FirestoreDocument>
-        );
+        )
     }
 }
 

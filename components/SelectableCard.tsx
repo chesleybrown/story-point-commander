@@ -1,16 +1,15 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import { StoryPointDetail } from "../services/StoryPointOptions";
+import React from "react"
+import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
+import { StoryPointDetail } from "../services/StoryPointOptions"
 
 type Props = {
     current?: StoryPointDetail;
     option: StoryPointDetail;
     onClick: (detail: StoryPointDetail) => void;
-};
+}
 
-type State = {
-};
+type State = {}
 
 class SelectableCard extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -34,7 +33,7 @@ class SelectableCard extends React.Component<Props, State> {
                     <Card.Text>{this.props.option.description}</Card.Text>
                 </Card.Body>
             </Card>
-        );
+        )
     }
 }
 

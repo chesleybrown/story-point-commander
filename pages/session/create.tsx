@@ -1,8 +1,7 @@
-import { useRouter } from 'next/router'
 import Head from "next/head"
-import SessionCreator from "../../components/SessionCreator";
-import SessionNav from "../../components/SessionNav";
-import Footer from "../../components/Footer";
+import SessionCreator from "../../components/SessionCreator"
+import SessionNav from "../../components/SessionNav"
+import Footer from "../../components/Footer"
 
 const SessionCreate = () => {
     return (

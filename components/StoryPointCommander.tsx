@@ -1,19 +1,17 @@
-import React from "react";
-import SolutionEffortSelector from "../components/SolutionEffortSelector";
-import SolutionEffortMemo from "../components/SolutionEffortMemo";
-import RiskMemo from "../components/RiskMemo";
-import TestingSelector from "./TestingSelector";
-import RiskSelector from "../components/RiskSelector";
-import Summary from "../components/Summary";
-import SummaryActions from "../components/SummaryActions";
-import SelectionActions from "./SelectionActions";
-import Container from "react-bootstrap/Container";
+import React from "react"
+import SolutionEffortSelector from "../components/SolutionEffortSelector"
+import SolutionEffortMemo from "../components/SolutionEffortMemo"
+import RiskMemo from "../components/RiskMemo"
+import TestingSelector from "./TestingSelector"
+import RiskSelector from "../components/RiskSelector"
+import Summary from "../components/Summary"
+import SummaryActions from "../components/SummaryActions"
+import SelectionActions from "./SelectionActions"
+import Container from "react-bootstrap/Container"
 
-type Props = {
-};
+type Props = {}
 
-type State = {
-};
+type State = {}
 
 class StoryPointCommander extends React.Component<Props, State> {
     constructor(props) {
@@ -58,7 +56,7 @@ class StoryPointCommander extends React.Component<Props, State> {
 
                 <SummaryActions></SummaryActions>
             </Container>
-        );
+        )
     }
 }
 

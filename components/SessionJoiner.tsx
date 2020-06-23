@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Link from "next/link";
-import { useRouter } from 'next/router'
+import React, { useState } from "react"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form"
+import FormControl from "react-bootstrap/FormControl"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 const SessionJoiner = () => {
     const router = useRouter();
@@ -30,7 +30,7 @@ const SessionJoiner = () => {
                 </Col>
             </Row>
         </Container>
-    );
+    )
 }
 
 export default SessionJoiner

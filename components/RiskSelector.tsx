@@ -1,17 +1,15 @@
-import React from "react";
+import React from "react"
 import SelectableCard from "./SelectableCard"
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { StoryPointOptionID, StoryPointDetail, StoryPointRiskOptions } from "../services/StoryPointOptions";
-import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore";
-import Session from "./Session";
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import { StoryPointOptionID, StoryPointRiskOptions } from "../services/StoryPointOptions"
+import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore"
+import Session from "./Session"
 
-type Props = {
-};
+type Props = {}
 
-type State = {
-};
+type State = {}
 
 class RiskSelector extends React.Component<Props, State> {
     static contextType = Session;
@@ -59,7 +57,7 @@ class RiskSelector extends React.Component<Props, State> {
                     )
                 }}
             </FirestoreMutation>
-        );
+        )
     }
 }
 

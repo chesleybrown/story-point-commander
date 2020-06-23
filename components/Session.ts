@@ -1,6 +1,6 @@
-import React from "react";
-import Router from 'next/router';
-import * as firebase from 'firebase/app';
+import React from "react"
+import Router from 'next/router'
+import * as firebase from 'firebase/app'
 
 interface SessionContext {
     sessionId: string,
@@ -14,13 +14,13 @@ export let CurrentSessionContext: SessionContext = {
 let Session = React.createContext({
     sessionId: "",
     participantName: ""
-});
+})
 
 export function SetCurrentSessionContext(ctx: SessionContext) {
     CurrentSessionContext = {
         sessionId: "",
         participantName: ""
-    };
+    }
 }
 
 export function CreateSession(name: string) {
@@ -49,7 +49,7 @@ export function ShowResults(sessionID) {
         })
         .catch(function (error) {
             console.error("Error writing document: ", error);
-        });
+        })
 }
 
 export function HideResults(sessionID) {
@@ -63,7 +63,7 @@ export function HideResults(sessionID) {
         })
         .catch(function (error) {
             console.error("Error writing document: ", error);
-        });
+        })
 }
 
 export default Session

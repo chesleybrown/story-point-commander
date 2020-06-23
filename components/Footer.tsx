@@ -1,10 +1,8 @@
-import React from "react";
+import React from "react"
 
-type Props = {
-};
+type Props = {}
 
-type State = {
-};
+type State = {}
 
 class Footer extends React.Component<Props, State> {
     render() {
@@ -13,7 +11,7 @@ class Footer extends React.Component<Props, State> {
                 <hr></hr>
                 <p style={{ textAlign: "center" }}>Thrown together by <a target="_blank" href="https://twitter.com/Chesley">@Chesley</a> 👨🏻‍💻</p>
             </footer>
-        );
+        )
     }
 }
 

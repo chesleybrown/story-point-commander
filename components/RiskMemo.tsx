@@ -1,11 +1,9 @@
-import React from "react";
-import Alert from "react-bootstrap/Alert";
+import React from "react"
+import Alert from "react-bootstrap/Alert"
 
-type Props = {
-};
+type Props = {}
 
-type State = {
-};
+type State = {}
 
 class RiskMemo extends React.Component<Props, State> {
     render() {
@@ -19,7 +17,7 @@ class RiskMemo extends React.Component<Props, State> {
                     <li><strong>Mitigated:</strong> a plan has been created to eradicate the risk</li>
                 </ul>
             </Alert>
-        );
+        )
     }
 }
 

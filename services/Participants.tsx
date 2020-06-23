@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase/app'
 
 export type Participant = {
     name?: string,
@@ -18,23 +18,23 @@ export function ClearParticipantResponses(sessionID: string, name: string) {
     }
     db.collection("sessions").doc(sessionID).collection("participants").doc(name).update(p)
         .then(function () {
-            console.log("Document successfully written!");
+            console.log("Document successfully written!")
         })
         .catch(function (error) {
-            console.error("Error writing document: ", error);
-        });
+            console.error("Error writing document: ", error)
+        })
 }
 
 export function ParticipantReady(sessionID: string, name: string) {
-    let db = firebase.firestore();
+    let db = firebase.firestore()
     let p: Participant = {
         ready: true
     }
     db.collection("sessions").doc(sessionID).collection("participants").doc(name).update(p)
         .then(function () {
-            console.log("Document successfully written!");
+            console.log("Document successfully written!")
         })
         .catch(function (error) {
-            console.error("Error writing document: ", error);
-        });
+            console.error("Error writing document: ", error)
+        })
 }

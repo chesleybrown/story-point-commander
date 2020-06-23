@@ -1,6 +1,6 @@
 import Head from "next/head"
-import Navbar from "react-bootstrap/Navbar";
-import SessionCreator from "../components/SessionCreator";
+import Navbar from "react-bootstrap/Navbar"
+import SessionCreator from "../components/SessionCreator"
 import Footer from "../components/Footer"
 
 const HomePage = () => (

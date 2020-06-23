@@ -1,19 +1,17 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Link from "next/link";
-import { CreateSession } from "./Session";
+import React from "react"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form"
+import FormControl from "react-bootstrap/FormControl"
+import { CreateSession } from "./Session"
 
-type Props = {
-};
+type Props = {}
 
 type State = {
     participantName: string
-};
+}
 
 class SessionCreator extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -48,7 +46,7 @@ class SessionCreator extends React.Component<Props, State> {
                     </Col>
                 </Row>
             </Container>
-        );
+        )
     }
 }
 

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Spinner from "react-bootstrap/Spinner";
-import { FirestoreDocument } from "@react-firebase/firestore";
-import Session from "./Session";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+import React from "react"
+import Navbar from "react-bootstrap/Navbar"
+import Nav from "react-bootstrap/Nav"
+import Spinner from "react-bootstrap/Spinner"
+import { FirestoreDocument } from "@react-firebase/firestore"
+import Session from "./Session"
+import OverlayTrigger from "react-bootstrap/OverlayTrigger"
+import Tooltip from "react-bootstrap/Tooltip"
 
 const SessionNav = () => {
     return (
@@ -38,7 +38,7 @@ const SessionNav = () => {
                 </Navbar.Collapse>
             </Navbar>}
         </Session.Consumer>
-    );
+    )
 }
 
 export default SessionNav
