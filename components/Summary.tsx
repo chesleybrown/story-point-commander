@@ -31,21 +31,16 @@ const Summary = () => {
           <Container>
             <Row>
               <Col xs={3}>
-                <h3>Name</h3>
+                <h6>Name</h6>
               </Col>
               <Col xs={3}>
-                <h3>Solution &amp; Effort</h3>
+                <h6>Solution &amp; Effort</h6>
               </Col>
               <Col xs={3}>
-                <h3>Testing</h3>
+                <h6>Testing</h6>
               </Col>
               <Col xs={3}>
-                <h3>Risk</h3>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <hr></hr>
+                <h6>Risk</h6>
               </Col>
             </Row>
             <FirestoreCollection
