@@ -17,9 +17,6 @@ export function ClearParticipantResponses(sessionID: string, name: string) {
         ready: false
     }
     db.collection("sessions").doc(sessionID).collection("participants").doc(name).update(p)
-        .then(function () {
-            console.log("Document successfully written!")
-        })
         .catch(function (error) {
             console.error("Error writing document: ", error)
         })
@@ -31,9 +28,6 @@ export function ParticipantReady(sessionID: string, name: string) {
         ready: true
     }
     db.collection("sessions").doc(sessionID).collection("participants").doc(name).update(p)
-        .then(function () {
-            console.log("Document successfully written!")
-        })
         .catch(function (error) {
             console.error("Error writing document: ", error)
         })

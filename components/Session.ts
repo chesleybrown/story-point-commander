@@ -30,7 +30,6 @@ export function CreateSession(name: string) {
     }
     db.collection("sessions").add(p)
         .then(function (doc) {
-            console.log("Document successfully written!");
             Router.push("/session/" + doc.id + "?name=" + name)
         })
         .catch(function (error) {
@@ -44,9 +43,6 @@ export function ShowResults(sessionID) {
         hidden: false
     }
     db.collection("sessions").doc(sessionID).update(p)
-        .then(function () {
-            console.log("Document successfully written!");
-        })
         .catch(function (error) {
             console.error("Error writing document: ", error);
         })
@@ -58,9 +54,6 @@ export function HideResults(sessionID) {
         hidden: true
     }
     db.collection("sessions").doc(sessionID).update(p)
-        .then(function () {
-            console.log("Document successfully written!");
-        })
         .catch(function (error) {
             console.error("Error writing document: ", error);
         })
