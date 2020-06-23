@@ -9,55 +9,36 @@ import SummaryActions from "../components/SummaryActions"
 import SelectionActions from "./SelectionActions"
 import Container from "react-bootstrap/Container"
 
-type Props = {}
+const StoryPointCommander = () => {
+    return (
+        <Container>
+            <SolutionEffortMemo></SolutionEffortMemo>
 
-type State = {}
+            <h2>Solution &amp; Effort</h2>
+            <SolutionEffortSelector></SolutionEffortSelector>
 
-class StoryPointCommander extends React.Component<Props, State> {
-    constructor(props) {
-        super(props)
-        this.clear = this.clear.bind(this)
-    }
+            <hr></hr>
 
-    clear() {
-        this.setState({
-            currentSolutionEffortOption: null,
-            currentTestingOption: null,
-            currentRiskOption: null
-        })
-    }
+            <h2>Testing</h2>
+            <TestingSelector></TestingSelector>
 
-    render() {
-        return (
-            <Container>
-                <SolutionEffortMemo></SolutionEffortMemo>
+            <hr></hr>
 
-                <h2>Solution &amp; Effort</h2>
-                <SolutionEffortSelector></SolutionEffortSelector>
+            <h2>Risk</h2>
+            <RiskSelector></RiskSelector>
+            <hr></hr>
+            <RiskMemo></RiskMemo>
 
-                <hr></hr>
+            <SelectionActions></SelectionActions>
 
-                <h2>Testing</h2>
-                <TestingSelector></TestingSelector>
+            <hr></hr>
 
-                <hr></hr>
+            <h2>Summary</h2>
+            <Summary></Summary>
 
-                <h2>Risk</h2>
-                <RiskSelector></RiskSelector>
-                <hr></hr>
-                <RiskMemo></RiskMemo>
-
-                <SelectionActions></SelectionActions>
-
-                <hr></hr>
-
-                <h2>Summary</h2>
-                <Summary></Summary>
-
-                <SummaryActions></SummaryActions>
-            </Container>
-        )
-    }
+            <SummaryActions></SummaryActions>
+        </Container>
+    )
 }
 
 export default StoryPointCommander

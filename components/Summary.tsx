@@ -10,10 +10,6 @@ import { FirestoreDocument, FirestoreCollection } from "@react-firebase/firestor
 import Session from "./Session"
 import { Participant } from "../services/Participants"
 
-type Props = {}
-
-type State = {}
-
 const Summary = () => {
     const ctx = useContext(Session)
 
