@@ -328,22 +328,6 @@ const SolutionEffortSelector = () => {
                       ></SelectableCard>
                     </Col>
                   </Row>
-                  <Row>
-                    <Col>
-                      <hr></hr>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Alert variant="warning">
-                        Anything you feel would be greater than{" "}
-                        <strong>13</strong> story points should be broken down
-                        into smaller tasks before estimating further. Try adding
-                        a <strong>discovery task</strong> to help understand the{" "}
-                        <strong>scope of the work</strong> better.
-                      </Alert>
-                    </Col>
-                  </Row>
                 </Container>
               );
             }}

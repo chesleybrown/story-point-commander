@@ -3,7 +3,7 @@ import Alert from "react-bootstrap/Alert";
 
 const RiskMemo = () => {
   return (
-    <Alert variant="primary">
+    <Alert variant="danger">
       <p>
         Risks should be explicitly stated and actions to address each categories
         with <i>R.O.A.M</i>:

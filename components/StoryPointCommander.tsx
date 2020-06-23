@@ -1,41 +1,31 @@
 import React from "react";
-import SolutionEffortSelector from "../components/SolutionEffortSelector";
-import SolutionEffortMemo from "../components/SolutionEffortMemo";
-import RiskMemo from "../components/RiskMemo";
+import SolutionEffortSelector from "./SolutionEffortSelector";
 import TestingSelector from "./TestingSelector";
-import RiskSelector from "../components/RiskSelector";
-import Summary from "../components/Summary";
-import SummaryActions from "../components/SummaryActions";
+import RiskSelector from "./RiskSelector";
+import Summary from "./Summary";
+import SummaryActions from "./SummaryActions";
 import SelectionActions from "./SelectionActions";
 import Container from "react-bootstrap/Container";
 
 const StoryPointCommander = () => {
   return (
     <Container>
-      <SolutionEffortMemo></SolutionEffortMemo>
-
-      <h2>Solution &amp; Effort</h2>
+      <h5>Solution &amp; Effort</h5>
       <SolutionEffortSelector></SolutionEffortSelector>
-
       <hr></hr>
 
-      <h2>Testing</h2>
+      <h5>Testing</h5>
       <TestingSelector></TestingSelector>
-
       <hr></hr>
 
-      <h2>Risk</h2>
+      <h5>Risk</h5>
       <RiskSelector></RiskSelector>
       <hr></hr>
-      <RiskMemo></RiskMemo>
 
       <SelectionActions></SelectionActions>
-
       <hr></hr>
 
-      <h2>Summary</h2>
       <Summary></Summary>
-
       <SummaryActions></SummaryActions>
     </Container>
   );

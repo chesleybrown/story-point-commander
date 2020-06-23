@@ -6,8 +6,11 @@ import { FirestoreDocument } from "@react-firebase/firestore";
 import Session from "../services/Session";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import HelpModal from "./HelpModal";
 
 const SessionNav = () => {
+  const [showHelp, setShowHelp] = React.useState(false);
+
   return (
     <Session.Consumer>
       {(ctx) => (
@@ -49,6 +52,8 @@ const SessionNav = () => {
             ) : (
               ""
             )}
+            <Nav.Link onClick={() => setShowHelp(true)}>Help</Nav.Link>
+            <HelpModal show={showHelp} onHide={() => setShowHelp(false)} />
             <Navbar.Text>
               {ctx.participantName ? (
                 <span>
