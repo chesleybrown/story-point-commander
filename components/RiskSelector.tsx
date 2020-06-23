@@ -26,7 +26,7 @@ class RiskSelector extends React.Component<Props, State> {
                         runMutation({
                             name: this.context.participantName,
                             riskOptionId: id
-                        }, { merge: true }).then(res => { })
+                        }, { merge: true }).then(() => { })
                     }
                     return (
                         <FirestoreDocument path={"/sessions/" + this.context.sessionId + "/participants/" + this.context.participantName}>
