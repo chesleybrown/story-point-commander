@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col"
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import FormControl from "react-bootstrap/FormControl"
-import { CreateSession } from "./Session"
+import { CreateSession } from "../services/Session"
 
 const SessionCreator = () => {
     const [participantName, setParticipantName] = useState("")

@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { StoryPointOptionID, StoryPointTestingOptions } from "../services/StoryPointOptions"
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore"
-import Session from "./Session"
+import Session from "../services/Session"
 
 const TestingSelector = () => {
     const ctx = useContext(Session)

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import Head from "next/head"
 import StoryPointCommander from "../../components/StoryPointCommander"
-import Session from "../../components/Session"
+import Session from "../../services/Session"
 import Footer from "../../components/Footer"
 import SessionJoiner from "../../components/SessionJoiner"
 import SessionNav from "../../components/SessionNav"

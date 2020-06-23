@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col"
 import Alert from "react-bootstrap/Alert"
 import { StoryPointOptionID, StoryPointSolutionEffortOptions } from "../services/StoryPointOptions"
 import { FirestoreMutation, FirestoreDocument } from "@react-firebase/firestore"
-import Session from "./Session"
+import Session from "../services/Session"
 
 const SolutionEffortSelector = () => {
     const ctx = useContext(Session)

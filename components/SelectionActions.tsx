@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Session from "./Session"
+import Session from "../services/Session"
 import Button from "react-bootstrap/Button"
 import { ParticipantReady, ClearParticipantResponses } from "../services/Participants"
 

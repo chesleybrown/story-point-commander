@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Session, { ShowResults, HideResults } from "./Session"
+import Session, { ShowResults, HideResults } from "../services/Session"
 import Button from "react-bootstrap/Button"
 
 const SummaryActions = () => {

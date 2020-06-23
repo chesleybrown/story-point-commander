@@ -7,7 +7,7 @@ import Badge from "react-bootstrap/Badge"
 import { StoryPointSolutionEffortOptions, StoryPointTestingOptions, StoryPointRiskOptions } from "../services/StoryPointOptions"
 import Calculator from "../services/StoryPointCalculator"
 import { FirestoreDocument, FirestoreCollection } from "@react-firebase/firestore"
-import Session from "./Session"
+import Session from "../services/Session"
 import { Participant } from "../services/Participants"
 
 const Summary = () => {
