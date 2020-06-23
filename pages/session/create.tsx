@@ -1,26 +1,25 @@
-import { useRouter } from 'next/router'
-import Head from "next/head"
+import Head from "next/head";
 import SessionCreator from "../../components/SessionCreator";
 import SessionNav from "../../components/SessionNav";
 import Footer from "../../components/Footer";
 
 const SessionCreate = () => {
-    return (
-        <div>
-            <Head>
-                <title>Story Point Commander</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+  return (
+    <div>
+      <Head>
+        <title>Story Point Commander</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-            <main>
-                <SessionNav></SessionNav>
-                <br />
-                <SessionCreator></SessionCreator>
-            </main>
+      <main>
+        <SessionNav></SessionNav>
+        <br />
+        <SessionCreator></SessionCreator>
+      </main>
 
-            <Footer></Footer>
-        </div>
-    )
-}
+      <Footer></Footer>
+    </div>
+  );
+};
 
-export default SessionCreate
+export default SessionCreate;
