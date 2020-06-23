@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { SetParticipantName } from "../services/Session";
 
 const SessionJoiner = () => {
   const router = useRouter();
@@ -15,6 +16,7 @@ const SessionJoiner = () => {
 
   function submit(e) {
     e.preventDefault();
+    SetParticipantName(name);
   }
 
   return (
@@ -29,7 +31,7 @@ const SessionJoiner = () => {
               placeholder="What's your name?"
               className="mr-sm-2"
             ></FormControl>
-            <Link href={"/session/" + id + "?name=" + name}>
+            <Link href={"/session/" + id}>
               <Button
                 size="lg"
                 variant="primary"

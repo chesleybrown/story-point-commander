@@ -5,18 +5,23 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
-import { CreateSession } from "../services/Session";
+import {
+  CreateSession,
+  SetParticipantName,
+  GetParticipantName,
+} from "../services/Session";
 
 const SessionCreator = () => {
-  const [participantName, setParticipantName] = useState("");
+  const [name, setName] = useState(GetParticipantName());
 
-  function setName(e) {
-    setParticipantName(e.target.value);
+  function set(e) {
+    setName(e.target.value);
   }
 
   function submit(e) {
     e.preventDefault();
-    CreateSession(participantName);
+    SetParticipantName(name);
+    CreateSession();
   }
 
   return (
@@ -26,7 +31,7 @@ const SessionCreator = () => {
           <Form inline onSubmit={submit}>
             <FormControl
               size="lg"
-              onChange={setName}
+              onChange={set}
               type="text"
               placeholder="What's your name?"
               className="mr-sm-2"
@@ -35,7 +40,7 @@ const SessionCreator = () => {
               type="submit"
               size="lg"
               variant="primary"
-              disabled={participantName ? false : true}
+              disabled={name ? false : true}
             >
               Start Session
             </Button>
