@@ -1,27 +1,6 @@
 import React from "react"
-import Router from 'next/router'
-import * as firebase from 'firebase/app'
-
-interface SessionContext {
-    sessionId: string,
-    participantName: string
-}
-
-export let CurrentSessionContext: SessionContext = {
-    sessionId: "",
-    participantName: ""
-}
-let Session = React.createContext({
-    sessionId: "",
-    participantName: ""
-})
-
-export function SetCurrentSessionContext(ctx: SessionContext) {
-    CurrentSessionContext = {
-        sessionId: "",
-        participantName: ""
-    }
-}
+import Router from "next/router"
+import * as firebase from "firebase/app"
 
 export function CreateSession(name: string) {
     let db = firebase.firestore()
@@ -37,7 +16,7 @@ export function CreateSession(name: string) {
         })
 }
 
-export function ShowResults(sessionID) {
+export function ShowResults(sessionID: string) {
     let db = firebase.firestore()
     let p = {
         hidden: false
@@ -48,7 +27,7 @@ export function ShowResults(sessionID) {
         })
 }
 
-export function HideResults(sessionID) {
+export function HideResults(sessionID: string) {
     let db = firebase.firestore()
     let p = {
         hidden: true
@@ -58,5 +37,10 @@ export function HideResults(sessionID) {
             console.error("HideResults error: ", error)
         })
 }
+
+let Session = React.createContext({
+    sessionId: "",
+    participantName: ""
+})
 
 export default Session
