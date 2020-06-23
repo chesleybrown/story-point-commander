@@ -33,7 +33,7 @@ export function CreateSession(name: string) {
             Router.push("/session/" + doc.id + "?name=" + name)
         })
         .catch(function (error) {
-            console.error("Error writing document: ", error)
+            console.error("CreateSession error: ", error)
         })
 }
 
@@ -44,7 +44,7 @@ export function ShowResults(sessionID) {
     }
     db.collection("sessions").doc(sessionID).update(p)
         .catch(function (error) {
-            console.error("Error writing document: ", error)
+            console.error("ShowResults error: ", error)
         })
 }
 
@@ -55,7 +55,7 @@ export function HideResults(sessionID) {
     }
     db.collection("sessions").doc(sessionID).update(p)
         .catch(function (error) {
-            console.error("Error writing document: ", error)
+            console.error("HideResults error: ", error)
         })
 }
 
