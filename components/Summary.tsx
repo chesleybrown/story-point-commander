@@ -103,7 +103,9 @@ const Summary = () => {
                               value.solutionEffortOptionId
                             ].description
                           ) : (
-                            "…"
+                            <Badge pill variant="secondary">
+                              Pending
+                            </Badge>
                           )}
                         </p>
                       </Col>
@@ -117,7 +119,9 @@ const Summary = () => {
                             StoryPointTestingOptions[value.testingOptionId]
                               .description
                           ) : (
-                            "…"
+                            <Badge pill variant="secondary">
+                              Pending
+                            </Badge>
                           )}
                         </p>
                       </Col>
@@ -131,7 +135,9 @@ const Summary = () => {
                             StoryPointRiskOptions[value.riskOptionId]
                               .description
                           ) : (
-                            "…"
+                            <Badge pill variant="secondary">
+                              Pending
+                            </Badge>
                           )}
                         </p>
                       </Col>
