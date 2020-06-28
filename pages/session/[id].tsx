@@ -10,12 +10,12 @@ const SessionPage = () => {
   const router = useRouter();
   const { id, name } = router.query;
 
-  let sessionId: string;
+  let sessionId = "";
   if (typeof id === "string") {
     sessionId = id;
   }
 
-  let participantName: string;
+  let participantName = "";
   if (typeof name === "string") {
     participantName = name;
   }
