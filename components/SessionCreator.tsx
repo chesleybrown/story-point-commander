@@ -10,11 +10,11 @@ import { CreateSession } from "../services/Session";
 const SessionCreator = () => {
   const [participantName, setParticipantName] = useState("");
 
-  function setName(e) {
+  function change(e: React.ChangeEvent<HTMLInputElement>) {
     setParticipantName(e.target.value);
   }
 
-  function submit(e) {
+  function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     CreateSession(participantName);
   }
@@ -26,7 +26,7 @@ const SessionCreator = () => {
           <Form inline onSubmit={submit}>
             <FormControl
               size="lg"
-              onChange={setName}
+              onChange={change}
               type="text"
               placeholder="What's your name?"
               className="mr-sm-2"

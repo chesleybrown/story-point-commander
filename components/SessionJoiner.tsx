@@ -13,7 +13,11 @@ const SessionJoiner = () => {
   const { id } = router.query;
   const [name, setName] = useState("");
 
-  function submit(e) {
+  function change(e: React.ChangeEvent<HTMLInputElement>) {
+    setName(e.target.value);
+  }
+
+  function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
   }
 
@@ -24,7 +28,7 @@ const SessionJoiner = () => {
           <Form inline onSubmit={submit}>
             <FormControl
               size="lg"
-              onChange={(e) => setName(e.target.value)}
+              onChange={change}
               type="text"
               placeholder="What's your name?"
               className="mr-sm-2"

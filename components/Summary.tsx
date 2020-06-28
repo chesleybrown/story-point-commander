@@ -61,7 +61,7 @@ const Summary = () => {
                 if (!d.value) {
                   return;
                 }
-                d.value.forEach((value: Participant, index) => {
+                d.value.forEach((value: Participant, index: number) => {
                   let badge = <span></span>;
                   if (value.ready) {
                     badge = (
@@ -79,14 +79,19 @@ const Summary = () => {
                         ) : (
                           <Badge pill variant="primary">
                             {Calculator({
-                              solutionEffortOption:
-                                StoryPointSolutionEffortOptions[
-                                  value.solutionEffortOptionId
-                                ],
-                              testingOption:
-                                StoryPointTestingOptions[value.testingOptionId],
-                              riskOption:
-                                StoryPointRiskOptions[value.riskOptionId],
+                              solutionEffortOption: value.solutionEffortOptionId
+                                ? StoryPointSolutionEffortOptions[
+                                    value.solutionEffortOptionId
+                                  ]
+                                : undefined,
+                              testingOption: value.testingOptionId
+                                ? StoryPointTestingOptions[
+                                    value.testingOptionId
+                                  ]
+                                : undefined,
+                              riskOption: value.riskOptionId
+                                ? StoryPointRiskOptions[value.riskOptionId]
+                                : undefined,
                             })}
                           </Badge>
                         )}{" "}

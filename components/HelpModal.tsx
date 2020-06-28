@@ -1,11 +1,11 @@
 import React from "react";
-import Modal from "react-bootstrap/Modal";
+import Modal, { ModalProps } from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import SolutionEffortMemo from "./SolutionEffortMemo";
 import RiskMemo from "./RiskMemo";
 import Alert from "react-bootstrap/Alert";
 
-const HelpModal = (props) => {
+const HelpModal = (props: ModalProps) => {
   return (
     <Modal
       {...props}
