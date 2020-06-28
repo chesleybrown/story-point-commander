@@ -4,11 +4,11 @@ Very opinionated story point poker. Estimate stories by thinking about the **sol
 
 Try it out for yourself!
 
-https://story-point-commander.now.sh
+https://story-point-commander.com
 
 <p align="center">
-  <a href="https://story-point-commander.now.sh">
-    <img alt="Story Point Commander join session screenshot" src="media/join-session-screenshot.png">
+  <a href="https://story-point-commander.com">
+    <img alt="Story Point Commander session example screenshot" src="media/session-example.png">
   </a>
 </p>
 
