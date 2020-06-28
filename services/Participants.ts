@@ -2,18 +2,18 @@ import * as firebase from "firebase/app";
 
 export type Participant = {
   name?: string;
-  solutionEffortOptionId?: number;
-  testingOptionId?: number;
-  riskOptionId?: number;
+  solutionEffortOptionId?: string;
+  testingOptionId?: string;
+  riskOptionId?: string;
   ready?: boolean;
 };
 
 export function ClearParticipantResponses(sessionID: string, name: string) {
   let db = firebase.firestore();
   let p: Participant = {
-    solutionEffortOptionId: 0,
-    testingOptionId: 0,
-    riskOptionId: 0,
+    solutionEffortOptionId: undefined,
+    testingOptionId: undefined,
+    riskOptionId: undefined,
     ready: false,
   };
   db.collection("sessions")
