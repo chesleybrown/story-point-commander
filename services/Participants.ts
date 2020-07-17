@@ -1,19 +1,22 @@
 import * as firebase from "firebase/app";
 
-export type Participant = {
-  name?: string;
-  solutionEffortOptionId?: string;
-  testingOptionId?: string;
-  riskOptionId?: string;
-  ready?: boolean;
+type ParticipantClearUpdate = {
+  solutionEffortOptionId: null;
+  testingOptionId: null;
+  riskOptionId: null;
+  ready: boolean;
+};
+
+type ParticipantReadyUpdate = {
+  ready: boolean;
 };
 
 export function ClearParticipantResponses(sessionID: string, name: string) {
   let db = firebase.firestore();
-  let p: Participant = {
-    solutionEffortOptionId: undefined,
-    testingOptionId: undefined,
-    riskOptionId: undefined,
+  let p: ParticipantClearUpdate = {
+    solutionEffortOptionId: null,
+    testingOptionId: null,
+    riskOptionId: null,
     ready: false,
   };
   db.collection("sessions")
@@ -28,7 +31,7 @@ export function ClearParticipantResponses(sessionID: string, name: string) {
 
 export function ParticipantReady(sessionID: string, name: string) {
   let db = firebase.firestore();
-  let p: Participant = {
+  let p: ParticipantReadyUpdate = {
     ready: true,
   };
   db.collection("sessions")
