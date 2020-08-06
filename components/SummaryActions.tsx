@@ -22,6 +22,7 @@ const SummaryActions = () => {
       variant="danger"
       onClick={() => {
         ClearAllParticipantResponses(ctx.sessionId);
+        HideResults(ctx.sessionId);
       }}
     >
       Clear All
