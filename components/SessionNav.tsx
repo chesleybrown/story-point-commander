@@ -10,6 +10,7 @@ import HelpModal from "./HelpModal";
 
 const SessionNav = () => {
   const [showHelp, setShowHelp] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
 
   return (
     <Session.Consumer>
@@ -19,9 +20,10 @@ const SessionNav = () => {
           <Nav>
             <OverlayTrigger
               placement="right"
+              onExited={() => setCopied(false)}
               overlay={
                 <Tooltip id="session-share-link">
-                  Click to copy share link
+                  {copied ? "Copied!" : "Click to copy share link"}
                 </Tooltip>
               }
             >
@@ -32,11 +34,12 @@ const SessionNav = () => {
                       <Spinner animation="border" size="sm" />
                     ) : (
                       <span
-                        onClick={() =>
+                        onClick={() => {
                           navigator.clipboard.writeText(
                             window.location.href.split("?")[0]
-                          )
-                        }
+                          );
+                          setCopied(true);
+                        }}
                       >
                         {ctx.sessionId}
                       </span>
