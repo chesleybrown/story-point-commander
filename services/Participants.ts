@@ -37,6 +37,23 @@ export function ClearParticipantResponses(sessionID: string, name: string) {
     });
 }
 
+export function ClearAllParticipantResponses(sessionID: string) {
+  let db = firebase.firestore();
+
+  db.collection("sessions")
+    .doc(sessionID)
+    .collection("participants")
+    .get()
+    .then((value) => {
+      for (let doc of value.docs) {
+        ClearParticipantResponses(sessionID, doc.id);
+      }
+    })
+    .catch(function (error) {
+      console.error("ClearAllParticipantResponses error: ", error);
+    });
+}
+
 export function ParticipantReady(sessionID: string, name: string) {
   let db = firebase.firestore();
   let p: ParticipantReadyUpdate = {
