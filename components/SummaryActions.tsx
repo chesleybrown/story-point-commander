@@ -5,8 +5,14 @@ import Col from "react-bootstrap/Col";
 import Session, { ShowResults, HideResults } from "../services/Session";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import { Participant } from "../services/Participants";
 import { ClearAllParticipantResponses } from "../services/Participants";
-import { FirestoreDocument } from "@react-firebase/firestore";
+import {
+  FirestoreDocument,
+  FirestoreCollection,
+} from "@react-firebase/firestore";
 
 const SummaryActions = () => {
   const ctx = useContext(Session);
@@ -16,6 +22,7 @@ const SummaryActions = () => {
       variant="danger"
       onClick={() => {
         ClearAllParticipantResponses(ctx.sessionId);
+        HideResults(ctx.sessionId);
       }}
     >
       Clear All
@@ -42,33 +49,101 @@ const SummaryActions = () => {
                   </Button>
                 );
               }
-              if (sd.value.hidden) {
-                return (
-                  <div>
-                    <Button
-                      variant="primary"
-                      onClick={() => {
-                        ShowResults(ctx.sessionId);
-                      }}
-                    >
-                      Show Results
-                    </Button>{" "}
-                    {clearAllButton}
-                  </div>
-                );
-              }
+
               return (
-                <div>
-                  <Button
-                    variant="secondary"
-                    onClick={() => {
-                      HideResults(ctx.sessionId);
-                    }}
-                  >
-                    Hide Results
-                  </Button>{" "}
-                  {clearAllButton}
-                </div>
+                <FirestoreCollection
+                  path={"/sessions/" + ctx.sessionId + "/participants"}
+                  limit={100}
+                >
+                  {(d) => {
+                    if (d.isLoading) {
+                      return (
+                        <Row className="justify-content-md-center">
+                          <Col md="auto">
+                            <Spinner animation="border"></Spinner>
+                          </Col>
+                        </Row>
+                      );
+                    }
+                    if (!d.value) {
+                      return;
+                    }
+                    let showAllDisabled = true;
+                    let readyCount = 0;
+                    d.value.forEach((value: Participant) => {
+                      if (value.ready) {
+                        readyCount++;
+                      }
+                    });
+                    // If all participants are ready, we want to enable the Show button
+                    if (readyCount == d.value.length) {
+                      showAllDisabled = false;
+                    }
+                    if (sd.value.hidden) {
+                      if (showAllDisabled) {
+                        return (
+                          <div>
+                            <OverlayTrigger
+                              rootClose
+                              placement="bottom"
+                              overlay={
+                                <Tooltip id="tooltip-show-results">
+                                  Everyone must be <strong>Ready</strong> to
+                                  show results
+                                </Tooltip>
+                              }
+                            >
+                              <div
+                                style={{
+                                  display: "inline-block",
+                                  cursor: "not-allowed",
+                                }}
+                              >
+                                <Button
+                                  style={{ pointerEvents: "none" }}
+                                  variant="primary"
+                                  disabled={true}
+                                  onClick={() => {
+                                    ShowResults(ctx.sessionId);
+                                  }}
+                                >
+                                  Show Results
+                                </Button>
+                              </div>
+                            </OverlayTrigger>{" "}
+                            {clearAllButton}
+                          </div>
+                        );
+                      }
+                      return (
+                        <div>
+                          <Button
+                            variant="primary"
+                            onClick={() => {
+                              ShowResults(ctx.sessionId);
+                            }}
+                          >
+                            Show Results
+                          </Button>{" "}
+                          {clearAllButton}
+                        </div>
+                      );
+                    }
+                    return (
+                      <div>
+                        <Button
+                          variant="secondary"
+                          onClick={() => {
+                            HideResults(ctx.sessionId);
+                          }}
+                        >
+                          Hide Results
+                        </Button>{" "}
+                        {clearAllButton}
+                      </div>
+                    );
+                  }}
+                </FirestoreCollection>
               );
             }}
           </FirestoreDocument>
