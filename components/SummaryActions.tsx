@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import Session, { ShowResults, HideResults } from "../services/Session";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import { Participant } from "../services/Participants";
 import { ClearAllParticipantResponses } from "../services/Participants";
 import {
@@ -78,11 +80,36 @@ const SummaryActions = () => {
                       showAllDisabled = false;
                     }
                     if (sd.value.hidden) {
+                      if (showAllDisabled) {
+                        return (
+                          <div>
+                            <OverlayTrigger
+                              placement="bottom"
+                              overlay={
+                                <Tooltip id="tooltip-show-results">
+                                  Everyone must be <strong>Ready</strong> to
+                                  show results
+                                </Tooltip>
+                              }
+                            >
+                              <Button
+                                variant="primary"
+                                disabled={true}
+                                onClick={() => {
+                                  ShowResults(ctx.sessionId);
+                                }}
+                              >
+                                Show Results
+                              </Button>
+                            </OverlayTrigger>{" "}
+                            {clearAllButton}
+                          </div>
+                        );
+                      }
                       return (
                         <div>
                           <Button
                             variant="primary"
-                            disabled={showAllDisabled}
                             onClick={() => {
                               ShowResults(ctx.sessionId);
                             }}
