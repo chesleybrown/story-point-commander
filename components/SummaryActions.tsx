@@ -56,7 +56,6 @@ const SummaryActions = () => {
                   limit={100}
                 >
                   {(d) => {
-                    let list: React.ReactElement[] = [];
                     if (d.isLoading) {
                       return (
                         <Row className="justify-content-md-center">
@@ -85,6 +84,7 @@ const SummaryActions = () => {
                         return (
                           <div>
                             <OverlayTrigger
+                              rootClose
                               placement="bottom"
                               overlay={
                                 <Tooltip id="tooltip-show-results">
@@ -93,15 +93,23 @@ const SummaryActions = () => {
                                 </Tooltip>
                               }
                             >
-                              <Button
-                                variant="primary"
-                                disabled={true}
-                                onClick={() => {
-                                  ShowResults(ctx.sessionId);
+                              <div
+                                style={{
+                                  display: "inline-block",
+                                  cursor: "not-allowed",
                                 }}
                               >
-                                Show Results
-                              </Button>
+                                <Button
+                                  style={{ pointerEvents: "none" }}
+                                  variant="primary"
+                                  disabled={true}
+                                  onClick={() => {
+                                    ShowResults(ctx.sessionId);
+                                  }}
+                                >
+                                  Show Results
+                                </Button>
+                              </div>
                             </OverlayTrigger>{" "}
                             {clearAllButton}
                           </div>
