@@ -4,10 +4,10 @@ Very opinionated story point poker. Estimate stories by thinking about the **sol
 
 Try it out for yourself!
 
-https://story-point-commander.com
+https://story-point-commander.vercel.app
 
 <p align="center">
-  <a href="https://story-point-commander.com">
+  <a href="https://story-point-commander.vercel.app">
     <img alt="Story Point Commander session example screenshot" src="media/session-example.png">
   </a>
 </p>
