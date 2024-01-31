@@ -248,7 +248,7 @@ export class StoryPointSolutionEffortOptions {
     description: (
       <span>
         Complexity or amount of work to be done requires <strong>many</strong>{" "}
-        of sessions of concentration
+        sessions of concentration
       </span>
     ),
   };
